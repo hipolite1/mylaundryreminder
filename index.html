@@ -141,5 +141,44 @@
   </div>
 
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <!-- Wire plan buttons to Stripe Payment Links -->
+<script>
+(function () {
+  // your exact mapping (no assumptions)
+  const links = new Map([
+    ["pro", "https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600"],
+    ["growth", "https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601"],
+    ["single store", "https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602"]
+  ]);
+
+  // find anchors/buttons by visible text (case-insensitive)
+  const candidates = document.querySelectorAll('a, button, [role="button"]');
+  candidates.forEach(el => {
+    const label = (el.getAttribute('aria-label') || el.textContent || "")
+      .toLowerCase().trim();
+
+    for (const [key, url] of links) {
+      if (!label.includes(key)) continue;
+
+      // if it's an <a>, set href; otherwise attach a click handler
+      if (el.tagName.toLowerCase() === "a") {
+        el.href = url;
+        el.target = "_blank";
+        el.rel = "noopener";
+      } else {
+        el.style.cursor = "pointer";
+        el.addEventListener("click", () => window.open(url, "_blank", "noopener"));
+      }
+
+      // make it accessible
+      if (!el.getAttribute('aria-label')) {
+        el.setAttribute('aria-label', `Checkout: ${key.charAt(0).toUpperCase() + key.slice(1)} plan`);
+      }
+      break; // stop after the first match for this element
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
