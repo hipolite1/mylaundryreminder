@@ -256,6 +256,49 @@
     updatePrices('monthly');
   })();
   </script>
+  // --- Stripe Payment Links (Monthly + Yearly) ---
+const STRIPE_LINKS = {
+  single: {
+    monthly: 'https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602',
+    yearly:  'https://buy.stripe.com/3cI28s4xieKjdRieVJg3607'
+  },
+  growth: {
+    monthly: 'https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601',
+    yearly:  'https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606'
+  },
+  pro: {
+    monthly: 'https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600',
+    yearly:  'https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605'
+  }
+};
+
+// Helper to detect current billing mode
+function getBillingMode() {
+  return document.getElementById('toggle-yearly')?.getAttribute('aria-selected') === 'true'
+    ? 'yearly' : 'monthly';
+}
+
+// Update all checkout buttons when toggle changes
+function updatePaymentLinks(mode) {
+  document.querySelectorAll('[data-checkout-btn]').forEach(btn => {
+    const card = btn.closest('.plan-card');
+    const plan = card?.getAttribute('data-plan');
+    const url = STRIPE_LINKS[plan] && STRIPE_LINKS[plan][mode];
+    btn.setAttribute('href', url || '#');
+    btn.textContent = mode === 'yearly' ? 'Subscribe (Yearly)' : 'Subscribe (Monthly)';
+  });
+}
+
+// Wire up toggle buttons
+(function() {
+  const monthlyBtn = document.getElementById('toggle-monthly');
+  const yearlyBtn  = document.getElementById('toggle-yearly');
+  if (monthlyBtn) monthlyBtn.addEventListener('click', () => updatePaymentLinks('monthly'));
+  if (yearlyBtn)  yearlyBtn.addEventListener('click', () => updatePaymentLinks('yearly'));
+  // Initial run
+  updatePaymentLinks(getBillingMode());
+})();
+</script>
 </body>
 </html>
 
