@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to My Laundry Reminder — You're In!</title>
+  <meta name="description" content="Thanks for starting your 30-day free trial of My Laundry Reminder. Get set up in minutes with these next steps." />
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://mylaundryreminder.com/success">
+  <meta property="og:title" content="Welcome to My Laundry Reminder — You're In!">
+  <meta property="og:description" content="Start your 30-day free trial and set up your store in minutes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mylaundryreminder.com/success">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧺</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-2xl text-indigo-700" aria-label="My Laundry Reminder home">
+        <span>My Laundry Reminder</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/#overview" class="hover:text-indigo-600">Overview</a>
+        <a href="/#pricing" class="hover:text-indigo-600">Pricing</a>
+        <a href="/#contact" class="hover:text-indigo-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-10">
+    <div class="rounded-2xl border bg-white p-8 shadow-sm">
+      <div class="text-center">
+        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">🎉 You're in — 30-day free trial started!</h1>
+        <p class="mt-3 text-gray-600">Thanks for subscribing. Let’s get your store set up in a few quick steps.</p>
+      </div>
+
+      <section class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="rounded-xl border p-6">
+          <h2 class="text-lg font-semibold">Next steps (5–10 mins)</h2>
+          <ol class="list-decimal pl-5 mt-3 space-y-2 text-sm text-gray-700">
+            <li>Create your first <strong>store/location</strong>.</li>
+            <li>Invite <strong>staff users</strong> (optional).</li>
+            <li>Import customers (CSV) or start collecting at checkout.</li>
+            <li>Choose <strong>reminder timings</strong> (e.g., 7/14/30 days).</li>
+            <li>Send yourself a <strong>test reminder</strong>.</li>
+          </ol>
+          <div class="mt-5 flex flex-col sm:flex-row gap-3">
+            <a href="https://app.mylaundryreminder.com/login" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 text-white px-4 py-2.5 text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Go to Dashboard</a>
+            <a href="/getting-started.html" class="inline-flex items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">Getting Started Guide</a>
+          </div>
+        </div>
+
+        <div class="rounded-xl border p-6">
+          <h2 class="text-lg font-semibold">Your subscription</h2>
+          <ul class="mt-3 space-y-2 text-sm text-gray-700">
+            <li>Trial ends on: <span id="trial-end" class="font-medium">—</span></li>
+            <li>Plan: <span id="plan-name" class="font-medium">Selected at checkout</span></li>
+            <li>Billing: <span id="billing-cycle" class="font-medium">Monthly/Yearly</span></li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-2">We’ll email you before your trial ends. You can cancel anytime from your customer portal.</p>
+          <div class="mt-4">
+            <a href="https://billing.stripe.com/p/login" class="inline-flex items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">Manage Billing</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-8 rounded-xl bg-indigo-50 border border-indigo-100 p-6">
+        <h2 class="text-lg font-semibold text-indigo-900">Need help?</h2>
+        <p class="text-sm text-indigo-900/90 mt-2">Email us anytime at <a class="underline" href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a>. We typically reply within a business day.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="mt-8 border-t">
+    <div class="max-w-4xl mx-auto px-6 py-6 text-xs text-gray-500 flex items-center justify-between">
+      <span>© <span id="year"></span> My Laundry Reminder. All rights reserved.</span>
+      <a class="hover:text-indigo-600" href="/#pricing">Back to pricing ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const end = new Date();
+      end.setDate(end.getDate() + 30);
+      const fmt = end.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      const el = document.getElementById('trial-end');
+      if (el) el.textContent = fmt;
+    })();
+  </script>
+</body>
+</html>
