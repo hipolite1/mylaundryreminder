@@ -1,329 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Laundry Service Operator Plans | My Laundry Reminder</title>
-  <meta name="description" content="Compare laundry operator plans — Single Store, Growth, and Pro. 30-day free trial on all plans. Choose monthly or yearly billing." />
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mylaundryreminder.com/pricing">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Laundry Service Operator Plans | My Laundry Reminder">
-  <meta property="og:description" content="Compare Single Store, Growth, and Pro plans with a 30-day free trial. Monthly and yearly billing available.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mylaundryreminder.com/pricing">
-  <meta property="og:image" content="https://mylaundryreminder.com/og-image.png">
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Laundry Service Operator Plans | My Laundry Reminder">
-  <meta name="twitter:description" content="Compare Single Store, Growth, and Pro plans with a 30-day free trial. Monthly and yearly billing available.">
-  <meta name="twitter:image" content="https://mylaundryreminder.com/og-image.png">
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧺</text></svg>">
-  <!-- Tailwind CSS CDN (standalone) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>MyLaundryReminder — Pickup Reminders for Dry Cleaners</title>
+  <meta name="description" content="Daily pickup reminders by SMS/Call for dry cleaners. Staff enter name, phone, due date; reminders send daily until pickup, then stop automatically." />
+  <link rel="canonical" href="https://mylaundryreminder.com/" />
+  <meta name="theme-color" content="#1e90ff" />
   <style>
-    .price-amount { transition: opacity .2s ease; }
-  </style>
+    :root{--brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2;--text:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#ffffff}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial}
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-  <!-- Structured Data: Services + Offers (no yearly discount; shows full yearly price) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Laundry Operator Plans",
-    "description": "Pricing for laundry service operators with Single Store, Growth, and Pro plans. 30-day free trial on all plans.",
-    "provider": {
-      "@type": "Organization",
-      "name": "My Laundry Reminder",
-      "url": "https://mylaundryreminder.com"
-    },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Single Store (Monthly)",
-        "price": "49.00",
-        "priceCurrency": "USD",
-        "url": "https://mylaundryreminder.com/pricing",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Single Store (Yearly)",
-        "price": "588.00",
-        "priceCurrency": "USD",
-        "url": "https://mylaundryreminder.com/pricing",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Growth (Monthly)",
-        "price": "99.00",
-        "priceCurrency": "USD",
-        "url": "https://mylaundryreminder.com/pricing",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Growth (Yearly)",
-        "price": "1188.00",
-        "priceCurrency": "USD",
-        "url": "https://mylaundryreminder.com/pricing",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Pro (Monthly)",
-        "price": "199.00",
-        "priceCurrency": "USD",
-        "url": "https://mylaundryreminder.com/pricing",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Pro (Yearly)",
-        "price": "2388.00",
-        "priceCurrency": "USD",
-        "url": "https://mylaundryreminder.com/pricing",
-        "availability": "https://schema.org/InStock"
-      }
-    ]
-  }
-  </script>
+    /* Header */
+    header{position:sticky;top:0;background:rgba(255,255,255,.8);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand-title{font-weight:900;font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.05;letter-spacing:-.03em;background:linear-gradient(90deg,#1e90ff,#00c2ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(0,0,0,.04)}
+    .nav a{padding:8px 10px;text-decoration:none}
+    .nav .right{display:flex;gap:8px;align-items:center}
+    .btn,.btn-cta{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid transparent}
+    .btn-ghost{border-color:var(--border)}
+    .btn-cta{background:linear-gradient(180deg,var(--brand),var(--brand-600));color:#fff}
+    .btn-cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(30,144,255,.25);background:linear-gradient(180deg,var(--brand-600),var(--brand-700))}
+
+    /* Hero */
+    .hero{padding:42px 0 20px}
+    .hero h1{font-weight:900;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 16px}
+    .badge{display:inline-block;background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.25);color:var(--brand-700);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.03em}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+    section{padding:30px 0;border-top:1px solid var(--border)}
+    h2{font-weight:800;font-size:clamp(1.35rem,3.2vw,1.8rem);letter-spacing:-.01em;margin:0 0 10px}
+    .sub{color:var(--muted);margin:0 0 16px}
+
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 6px 24px rgba(2,6,23,.06);padding:18px}
+    .card h3{margin:0 0 6px;font-size:1.05rem}
+
+    .how-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px}
+    .step .num{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:800;margin-right:8px}
+
+    .pricing-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .plan{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;flex-direction:column}
+    .plan h3{margin:0 0 8px}
+    .plan ul{margin:0 0 18px;padding:0;list-style:none}
+    .plan li{display:grid;grid-template-columns:20px 1fr;gap:10px;margin:8px 0}
+
+    footer{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.95rem}
+    @media(prefers-reduced-motion:reduce){.btn-cta{transition:none}.btn-cta:hover{transform:none}}
+    /* phone icon styling */
+  .phone-link{display:inline-flex;align-items:center;gap:8px}
+  .phone-link svg{width:16px;height:16px;display:block}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <!-- Site Header -->
-  <header class="bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 font-extrabold text-2xl md:text-3xl text-indigo-700" aria-label="My Laundry Reminder home">
-        <span>My Laundry Reminder</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#overview" class="hover:text-indigo-600">Overview</a>
-        <a href="#pricing" class="hover:text-indigo-600">Pricing</a>
-        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand-title">MyLaundryReminder</div>
+      <nav class="right">
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a><a class="btn-ghost phone-link" href="tel:+14165551234" aria-label="Call MyLaundryReminder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.1.74.26 1.47.5 2.17a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.9-1.06a2 2 0 0 1 2.11-.45c.7.24 1.43.4 2.17.5A2 2 0 0 1 22 16.92z"/></svg><span>(416) 555-1234</span></a>
+        
+        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/add-pickup" target="_blank" rel="noopener">Subscriber Portal</a>
+        <a class="btn-cta" href="#get-started">Get Started</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-white to-gray-50 border-b">
-    <div class="max-w-6xl mx-auto px-6 py-10 md:py-14 text-center">
-      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">Simple pricing for laundry operators</h1>
-      <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Start free for 30 days. Transparent plans that help you drive repeat visits with timely SMS/email reminders and light-weight CRM tools.</p>
-    </div>
-  </section>
-
-  <!-- Overview -->
-  <section id="overview" class="max-w-6xl mx-auto px-6 py-10">
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl border bg-white p-6">
-        <h2 class="text-xl font-semibold mb-2">What you get</h2>
-        <ul class="space-y-2 text-sm text-gray-700">
-          <li>Automated SMS &amp; email reminders</li>
-          <li>Customer list &amp; visit history</li>
-          <li>Basic-to-advanced analytics</li>
-          <li>Multi-location support (on Growth &amp; Pro)</li>
-          <li>Priority support on higher plans</li>
-          <li>30-day free trial</li>
-        </ul>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="badge">Dry‑cleaner pickup reminders — no CRM replacement</span>
+        <h1>Daily pickup reminders by SMS/Call until garments are collected.</h1>
+        <p class="sub">Staff enters customer name, phone, and due date. On the due date, we send one reminder per day via your chosen channel. When they pick up (or you mark it), reminders stop automatically.</p>
+        <div class="cta-row" id="get-started">
+          <a class="btn-cta" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" target="_blank" rel="noopener">Choose Pro</a>
+          <a class="btn-cta" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" target="_blank" rel="noopener">Choose Growth</a>
+          <a class="btn-cta" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" target="_blank" rel="noopener">Choose Single Store</a>
+          <!-- Optional: keep this if you want a public link; remove if private -->
+          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/add-pickup" target="_blank" rel="noopener">Add a Pickup</a>
+        </div>
       </div>
-      <div class="rounded-2xl border bg-white p-6">
-        <h2 class="text-xl font-semibold mb-2">How it works</h2>
-        <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-700">
-          <li>Add your store(s) and staff users.</li>
-          <li>Import customers or start collecting at checkout.</li>
-          <li>Set reminder timings (e.g., 7/14/30 days).</li>
-          <li>Track returns and revenue uplift in your dashboard.</li>
-        </ol>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Why dry cleaners use MyLaundryReminder</h2>
+        <p class="sub">Reduce unclaimed orders, speed up rack turnover, and increase repeat visits — without changing your POS or CRM.</p>
+        <div class="grid">
+          <div class="card"><h3>Simple workflow</h3><p>Staff add a customer with due date; everything else is automatic.</p></div>
+          <div class="card"><h3>Flexible channels</h3><p>Pick SMS and/or Call. Start with SMS today; add WhatsApp later.</p></div>
+          <div class="card"><h3>Stops on pickup</h3><p>Customer taps a link or you mark “Picked”. Reminders stop instantly.</p></div>
+          <div class="card"><h3>Compliant by default</h3><p>Store name in every message, STOP/HELP, quiet hours, and opt‑in logs.</p></div>
+        </div>
       </div>
-      <div class="rounded-2xl border bg-white p-6">
-        <h2 class="text-xl font-semibold mb-2">Benefits</h2>
-        <ul class="space-y-2 text-sm text-gray-700">
-          <li>More repeat visits without extra work</li>
-          <li>Stay top-of-mind between wash cycles</li>
-          <li>Simple setup; no IT team required</li>
-          <li>Flexible pricing that scales with you</li>
-        </ul>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <h2>How it works</h2>
+        <p class="sub">Exactly what happens for your team and your customers.</p>
+        <div class="how-grid">
+          <div class="step"><div class="num">1</div><strong>Subscribe</strong><br>Pick a plan and get access to your portal.</div>
+          <div class="step"><div class="num">2</div><strong>Enter pickups</strong><br>Staff add customer name, phone, due date; choose reminder channel(s).</div>
+          <div class="step"><div class="num">3</div><strong>We remind daily</strong><br>On/after the due date, we send one reminder per day via SMS/Call.</div>
+          <div class="step"><div class="num">4</div><strong>Stop on pickup</strong><br>Customer taps a link or you mark it picked — the loop stops automatically.</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PRICING -->
-  <section id="pricing" class="plans max-w-6xl mx-auto p-6">
-    <header class="text-center mb-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Operator Plans</h2>
-      <p class="text-gray-600 mt-2">Switch between monthly or yearly (<strong>30-day free trial</strong>).</p>
-
-      <!-- Billing Toggle with Sliding Indicator -->
-      <div class="relative inline-flex mt-5 rounded-xl border p-1 bg-white shadow-sm overflow-hidden" role="tablist" aria-label="Billing period" style="width: 220px;">
-        <span id="toggle-indicator" class="absolute left-0 top-0 h-full w-1/2 bg-indigo-600 rounded-lg transition-all duration-300" aria-hidden="true"></span>
-        <button id="toggle-monthly" type="button" role="tab" aria-controls="plans" aria-selected="true" class="toggle-btn relative z-10 w-1/2 px-4 py-2 text-sm rounded-lg text-white focus:outline-none">Monthly</button>
-        <button id="toggle-yearly" type="button" role="tab" aria-controls="plans" aria-selected="false" class="toggle-btn relative z-10 w-1/2 px-4 py-2 text-sm rounded-lg text-gray-700 focus:outline-none">Yearly</button>
+    <section id="pricing">
+      <div class="container">
+        <h2>Plans</h2>
+        <p class="sub">All plans include daily reminder loops, portal access, and compliance controls.</p>
+        <div class="pricing-grid">
+          <article class="plan">
+            <h3>Pro</h3>
+            <ul>
+              <li>✓ Multi‑location</li>
+              <li>✓ SMS & Call reminders</li>
+              <li>✓ Priority support</li>
+            </ul>
+            <a class="btn-cta" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" target="_blank" rel="noopener" aria-label="Checkout: Pro">Choose Pro</a>
+          </article>
+          <article class="plan">
+            <h3>Growth</h3>
+            <ul>
+              <li>✓ Up to 3 locations</li>
+              <li>✓ SMS & Call reminders</li>
+              <li>✓ Review nudges (optional)</li>
+            </ul>
+            <a class="btn-cta" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" target="_blank" rel="noopener" aria-label="Checkout: Growth">Choose Growth</a>
+          </article>
+          <article class="plan">
+            <h3>Single Store</h3>
+            <ul>
+              <li>✓ 1 location</li>
+              <li>✓ SMS & Call reminders</li>
+              <li>✓ Core analytics</li>
+            </ul>
+            <a class="btn-cta" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" target="_blank" rel="noopener" aria-label="Checkout: Single Store">Choose Single Store</a>
+          </article>
+        </div>
       </div>
-    </header>
+    </section>
+  </main>
 
-    <!-- Order: Single Store, Growth, Pro -->
-    <div class="grid gap-6 md:grid-cols-3 items-stretch" id="plans" data-mode="monthly">
-      <!-- Single Store Plan -->
-      <article class="plan-card group relative rounded-2xl border shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col" aria-label="Single Store plan" data-monthly="49" data-plan="single">
-        <div class="p-6 flex-1 flex flex-col">
-          <h3 class="text-xl font-semibold">Single Store</h3>
-          <p class="mt-1 text-sm text-gray-500"><span class="sr-only">Price: </span>
-            <span class="text-2xl font-bold price-amount">49.00</span>
-            <span class="text-gray-500 price-interval">/ mo</span>
-          </p>
-          <ul class="mt-4 space-y-2 text-sm text-gray-700">
-            <li>Core reminders for one location</li>
-            <li>Basic analytics</li>
-            <li>Email support</li>
-          </ul>
-        </div>
-        <div class="p-6 pt-0">
-          <a href="#" target="_blank" rel="noopener" data-checkout-btn class="inline-flex items-center justify-center w-full rounded-xl border px-4 py-2.5 text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">Start 30-Day Free Trial</a>
-        </div>
-      </article>
-
-      <!-- Growth Plan -->
-      <article class="plan-card group relative rounded-2xl border shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col" aria-label="Growth plan" data-monthly="99" data-plan="growth">
-        <div class="p-6 flex-1 flex flex-col">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold">Growth</h3>
-          </div>
-          <p class="mt-1 text-sm text-gray-500"><span class="sr-only">Price: </span>
-            <span class="text-2xl font-bold price-amount">99.00</span>
-            <span class="text-gray-500 price-interval">/ mo</span>
-          </p>
-          <ul class="mt-4 space-y-2 text-sm text-gray-700">
-            <li>Unlimited locations</li>
-            <li>Custom integrations</li>
-            <li>Priority support &amp; onboarding</li>
-          </ul>
-        </div>
-        <div class="p-6 pt-0">
-          <a href="#" target="_blank" rel="noopener" data-checkout-btn class="inline-flex items-center justify-center w-full rounded-xl border px-4 py-2.5 text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">Start 30-Day Free Trial</a>
-        </div>
-      </article>
-
-      <!-- Pro Plan -->
-      <article class="plan-card group relative rounded-2xl border shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col" aria-label="Pro plan" data-monthly="199" data-plan="pro">
-        <div class="p-6 flex-1 flex flex-col">
-          <h3 class="text-xl font-semibold">Pro</h3>
-          <p class="mt-1 text-sm text-gray-500"><span class="sr-only">Price: </span>
-            <span class="text-2xl font-bold price-amount">199.00</span>
-            <span class="text-gray-500 price-interval">/ mo</span>
-          </p>
-          <ul class="mt-4 space-y-2 text-sm text-gray-700">
-            <li>Multi-location support</li>
-            <li>Advanced analytics</li>
-            <li>Priority email support</li>
-          </ul>
-        </div>
-        <div class="p-6 pt-0">
-          <a href="#" target="_blank" rel="noopener" data-checkout-btn class="inline-flex items-center justify-center w-full rounded-xl bg-indigo-600 text-white px-4 py-2.5 text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Start 30-Day Free Trial</a>
-        </div>
-      </article>
-    </div>
-
-    <p class="text-xs text-gray-500 mt-6 text-center">Prices in USD. Cancel anytime. 30-day free trial applies to all plans.</p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-6xl mx-auto p-6">
-    <div class="rounded-2xl border bg-white p-6 text-center">
-      <p class="text-sm">Questions? Email <a class="underline text-indigo-600" href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="mt-8 border-t">
-    <div class="max-w-6xl mx-auto px-6 py-6 text-xs text-gray-500 flex items-center justify-between">
-      <span>© <span id="year"></span> My Laundry Reminder. All rights reserved.</span>
-      <a class="hover:text-indigo-600" href="#pricing">Back to top ↑</a>
+  <footer>
+    <div class="container">
+      <div>© <span id="yr"></span> MyLaundryReminder. All rights reserved.</div>
+      <div style="margin-top:6px">Questions? <a href="mailto:hello@mylaundryreminder.com">hello@mylaundryreminder.com</a></div>
     </div>
   </footer>
 
   <script>
-  // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  const indicator = document.getElementById('toggle-indicator');
-  const monthlyBtn = document.getElementById('toggle-monthly');
-  const yearlyBtn = document.getElementById('toggle-yearly');
-
-  function format(n){ return n.toFixed(2); }
-
-  function setActive(btn){
-    document.querySelectorAll('.toggle-btn').forEach(b => {
-      const active = b === btn;
-      b.setAttribute('aria-selected', active ? 'true' : 'false');
-      b.classList.toggle('text-white', active);
-      b.classList.toggle('text-gray-700', !active);
-    });
-    indicator.style.transform = btn === yearlyBtn ? 'translateX(100%)' : 'translateX(0)';
-  }
-
-  function animatePriceChange(amountEl, newValue) {
-    amountEl.style.opacity = '0';
-    setTimeout(() => {
-      amountEl.textContent = format(newValue);
-      amountEl.style.opacity = '1';
-    }, 150);
-  }
-
-  function updatePrices(mode){
-    const yearly = mode === 'yearly';
-    document.querySelectorAll('.plan-card').forEach(card => {
-      const monthly = parseFloat(card.dataset.monthly);
-      const amountEl = card.querySelector('.price-amount');
-      const intervalEl = card.querySelector('.price-interval');
-
-      if(yearly){
-        const yearlyTotal = monthly * 12; // no discount; trial handled in Stripe
-        animatePriceChange(amountEl, yearlyTotal);
-        intervalEl.textContent = ' / yr';
-      } else {
-        animatePriceChange(amountEl, monthly);
-        intervalEl.textContent = ' / mo';
-      }
-    });
-  }
-
-  // --- Stripe Payment Links (Monthly + Yearly) ---
-  const STRIPE_LINKS = {
-    single: {
-      monthly: 'https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602',
-      yearly:  'https://buy.stripe.com/3cI28s4xieKjdRieVJg3607'
-    },
-    growth: {
-      monthly: 'https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601',
-      yearly:  'https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606'
-    },
-    pro: {
-      monthly: 'https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600',
-      yearly:  'https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605'
-    }
-  };
-
-  function updatePaymentLinks(mode){
-    document.querySelectorAll('[data-checkout-btn]').forEach(btn => {
-      const card = btn.closest('.plan-card');
-      const plan = card && card.getAttribute('data-plan');
-      const url = STRIPE_LINKS[plan] && STRIPE_LINKS[plan][mode];
-      btn.setAttribute('href', url || '#');
-      btn.textContent = 'Start 30-Day Free Trial';
-    });
-  }
-
-  // Listeners
-  monthlyBtn.addEventListener('click', () => { setActive(monthlyBtn); updatePrices('monthly'); updatePaymentLinks('monthly'); });
-  yearlyBtn.addEventListener('click', () => { setActive(yearlyBtn); updatePrices('yearly'); updatePaymentLinks('yearly'); });
-
-  // Init
-  setActive(monthlyBtn);
-  updatePrices('monthly');
-  updatePaymentLinks('monthly');
+    // dynamic year and smooth in-page scrolling
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}})
+    })
   </script>
 </body>
 </html>
+
 
