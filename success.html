@@ -1,93 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome to My Laundry Reminder — You're In!</title>
-  <meta name="description" content="Thanks for starting your 30-day free trial of My Laundry Reminder. Get set up in minutes with these next steps." />
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://mylaundryreminder.com/success">
-  <meta property="og:title" content="Welcome to My Laundry Reminder — You're In!">
-  <meta property="og:description" content="Start your 30-day free trial and set up your store in minutes.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mylaundryreminder.com/success">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧺</text></svg>">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-900">
-  <header class="bg-white shadow-sm">
-    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 font-extrabold text-2xl text-indigo-700" aria-label="My Laundry Reminder home">
-        <span>My Laundry Reminder</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/#overview" class="hover:text-indigo-600">Overview</a>
-        <a href="/#pricing" class="hover:text-indigo-600">Pricing</a>
-        <a href="/#contact" class="hover:text-indigo-600">Contact</a>
-      </nav>
-    </div>
-  </header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyLaundryReminder — Pickup Reminders for Dry Cleaners</title>
+<meta name="description" content="Daily pickup reminders by SMS/Call for dry cleaners. Staff enter name, phone, due date; reminders send daily until pickup, then stop automatically." />
+<link rel="canonical" href="https://mylaundryreminder.com/" />
+<meta name="theme-color" content="#1e90ff" />
+<style>
+:root{--brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2;--text:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#ffffff}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial}
+a{color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-  <main class="max-w-4xl mx-auto px-6 py-10">
-    <div class="rounded-2xl border bg-white p-8 shadow-sm">
-      <div class="text-center">
-        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">🎉 You're in — 30-day free trial started!</h1>
-        <p class="mt-3 text-gray-600">Thanks for subscribing. Let’s get your store set up in a few quick steps.</p>
-      </div>
 
-      <section class="mt-8 grid md:grid-cols-2 gap-6">
-        <div class="rounded-xl border p-6">
-          <h2 class="text-lg font-semibold">Next steps (5–10 mins)</h2>
-          <ol class="list-decimal pl-5 mt-3 space-y-2 text-sm text-gray-700">
-            <li>Create your first <strong>store/location</strong>.</li>
-            <li>Invite <strong>staff users</strong> (optional).</li>
-            <li>Import customers (CSV) or start collecting at checkout.</li>
-            <li>Choose <strong>reminder timings</strong> (e.g., 7/14/30 days).</li>
-            <li>Send yourself a <strong>test reminder</strong>.</li>
-          </ol>
-          <div class="mt-5 flex flex-col sm:flex-row gap-3">
-            <a href="https://app.mylaundryreminder.com/login" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 text-white px-4 py-2.5 text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Go to Dashboard</a>
-            <a href="/getting-started.html" class="inline-flex items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">Getting Started Guide</a>
-          </div>
-        </div>
+/* Header */
+header{position:sticky;top:0;background:rgba(255,255,255,.8);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand-title{font-weight:900;font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.05;letter-spacing:-.03em;background:linear-gradient(90deg,#1e90ff,#00c2ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(0,0,0,.04)}
+.nav a{padding:8px 10px;text-decoration:none}
+.nav .right{display:flex;gap:8px;align-items:center}
+.btn,.btn-cta{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid transparent}
+.btn-ghost{border-color:var(--border)}
+.btn-cta{background:linear-gradient(180deg,var(--brand),var(--brand-600));color:#fff}
+.btn-cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(30,144,255,.25);background:linear-gradient(180deg,var(--brand-600),var(--brand-700))}
 
-        <div class="rounded-xl border p-6">
-          <h2 class="text-lg font-semibold">Your subscription</h2>
-          <ul class="mt-3 space-y-2 text-sm text-gray-700">
-            <li>Trial ends on: <span id="trial-end" class="font-medium">—</span></li>
-            <li>Plan: <span id="plan-name" class="font-medium">Selected at checkout</span></li>
-            <li>Billing: <span id="billing-cycle" class="font-medium">Monthly/Yearly</span></li>
-          </ul>
-          <p class="text-xs text-gray-500 mt-2">We’ll email you before your trial ends. You can cancel anytime from your customer portal.</p>
-          <div class="mt-4">
-            <a href="https://billing.stripe.com/p/login" class="inline-flex items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">Manage Billing</a>
-          </div>
-        </div>
-      </section>
 
-      <section class="mt-8 rounded-xl bg-indigo-50 border border-indigo-100 p-6">
-        <h2 class="text-lg font-semibold text-indigo-900">Need help?</h2>
-        <p class="text-sm text-indigo-900/90 mt-2">Email us anytime at <a class="underline" href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a>. We typically reply within a business day.</p>
-      </section>
-    </div>
-  </main>
+/* Hero */
+.hero{padding:42px 0 20px}
+.hero h1{font-weight:900;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px}
+.hero p{color:var(--muted);margin:0 0 16px}
+.badge{display:inline-block;background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.25);color:var(--brand-700);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.03em}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 
-  <footer class="mt-8 border-t">
-    <div class="max-w-4xl mx-auto px-6 py-6 text-xs text-gray-500 flex items-center justify-between">
-      <span>© <span id="year"></span> My Laundry Reminder. All rights reserved.</span>
-      <a class="hover:text-indigo-600" href="/#pricing">Back to pricing ↑</a>
-    </div>
-  </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function(){
-      const end = new Date();
-      end.setDate(end.getDate() + 30);
-      const fmt = end.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-      const el = document.getElementById('trial-end');
-      if (el) el.textContent = fmt;
-    })();
-  </script>
-</body>
+section{padding:30px 0;border-top:1px solid var(--border)}
+h2{font-weight:800;font-size:clamp(1.35rem,3.2vw,1.8rem);letter-spacing:-.01em;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 16px}
+
+
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 6px 24px rgba(2,6,23,.06);padding:18px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+
+
+.how-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px}
+.step .num{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:800;margin-right:8px}
+
+
+.pricing-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.plan{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.plan h3{margin:0 0 8px}
+.plan ul{margin:0 0 18px;padding:0;list-style:none}
+.plan li{display:grid;grid-template-columns:20px 1fr;gap:10px;margin:8px 0}
+
+
 </html>
