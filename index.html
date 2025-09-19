@@ -8,7 +8,10 @@
   <link rel="canonical" href="https://mylaundryreminder.com/" />
   <meta name="theme-color" content="#1e90ff" />
   <style>
-    :root{ --brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2; --text:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#fff }
+    :root{
+      --brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2;
+      --text:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#fff
+    }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial}
     a{color:inherit;text-decoration:none}
@@ -72,7 +75,7 @@
 
     @media(prefers-reduced-motion:reduce){.btn-cta{transition:none}.btn-cta:hover{transform:none}}
   </style>
-  <!-- NOTE: If you show "30-day free trial", be sure your Stripe products have a 30-day trial configured. -->
+  <!-- NOTE: If you show "30-day free trial", make sure your Stripe products are configured with a 30-day trial. -->
 </head>
 <body>
   <header>
@@ -118,55 +121,56 @@
         <h2>Operators Plans</h2>
         <p class="sub">All plans include daily reminder loops, portal access, and compliance controls. <strong>Billed monthly or yearly</strong> <span class="save-pill">Yearly: 2 months free</span></p>
 
-      <!-- Billing toggle -->
-      <div class="billing" role="group" aria-label="Billing period">
-        <span class="label">Monthly</span>
-        <button class="toggle" id="billToggle" type="button" aria-pressed="false" aria-label="Toggle yearly billing"></button>
-        <span class="label">Yearly</span>
-      </div>
+        <!-- Billing toggle -->
+        <div class="billing" role="group" aria-label="Billing period">
+          <span class="label">Monthly</span>
+          <button class="toggle" id="billToggle" type="button" aria-pressed="false" aria-label="Toggle yearly billing"></button>
+          <span class="label">Yearly</span>
+        </div>
 
-      <div class="pricing-grid" id="plans">
-        <article class="plan" data-month="49" aria-labelledby="single-title">
-          <h3 id="single-title">Single Store</h3>
-          <div class="price"><span class="amount">$49</span> <span class="period">/month</span></div>
-          <div class="trial">30-day free trial · Cancel anytime</div>
-          <ul>
-            <li>1 location</li>
-            <li>SMS & Call reminders</li>
-            <li>Core analytics</li>
-          </ul>
-          <!-- Monthly link (works now) -->
-          <a class="btn-cta cta-month" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" rel="noopener" aria-label="Checkout: Single Store (monthly)">Choose Monthly</a>
-          <!-- Yearly link -->
-          <a class="btn-ghost cta-year" href="https://buy.stripe.com/3cI28s4xieKjdRieVJg3607" rel="noopener" aria-label="Checkout: Single Store (yearly)" style="display:none">Choose Yearly</a>
-        </article>
+        <div class="pricing-grid" id="plans">
+          <article class="plan" data-month="49" aria-labelledby="single-title">
+            <h3 id="single-title">Single Store</h3>
+            <div class="price"><span class="amount">$49</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul>
+              <li>1 location</li>
+              <li>SMS & Call reminders</li>
+              <li>Core analytics</li>
+            </ul>
+            <!-- Monthly link (works now) -->
+            <a class="btn-cta cta-month" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" rel="noopener" aria-label="Checkout: Single Store (monthly)">Choose Monthly</a>
+            <!-- Yearly link -->
+            <a class="btn-ghost cta-year" href="https://buy.stripe.com/3cI28s4xieKjdRieVJg3607" rel="noopener" aria-label="Checkout: Single Store (yearly)" style="display:none">Choose Yearly</a>
+          </article>
 
-        <article class="plan plan--popular" data-month="99" aria-labelledby="growth-title">
-          <span class="ribbon" aria-hidden="true">MOST POPULAR</span>
-          <h3 id="growth-title">Growth</h3>
-          <div class="price"><span class="amount">$99</span> <span class="period">/month</span></div>
-          <div class="trial">30-day free trial · Cancel anytime</div>
-          <ul>
-            <li>Up to 3 locations</li>
-            <li>SMS & Call reminders</li>
-            <li>Review nudges (optional)</li>
-          </ul>
-          <a class="btn-cta cta-month" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" rel="noopener" aria-label="Checkout: Growth (monthly)">Choose Monthly</a>
-          <a class="btn-ghost cta-year" href="https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606" rel="noopener" aria-label="Checkout: Growth (yearly)" style="display:none">Choose Yearly</a>
-        </article>
+          <article class="plan plan--popular" data-month="99" aria-labelledby="growth-title">
+            <span class="ribbon" aria-hidden="true">MOST POPULAR</span>
+            <h3 id="growth-title">Growth</h3>
+            <div class="price"><span class="amount">$99</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul>
+              <li>Up to 3 locations</li>
+              <li>SMS & Call reminders</li>
+              <li>Review nudges (optional)</li>
+            </ul>
+            <a class="btn-cta cta-month" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" rel="noopener" aria-label="Checkout: Growth (monthly)">Choose Monthly</a>
+            <a class="btn-ghost cta-year" href="https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606" rel="noopener" aria-label="Checkout: Growth (yearly)" style="display:none">Choose Yearly</a>
+          </article>
 
-        <article class="plan" data-month="199" aria-labelledby="pro-title">
-          <h3 id="pro-title">Pro</h3>
-          <div class="price"><span class="amount">$199</span> <span class="period">/month</span></div>
-          <div class="trial">30-day free trial · Cancel anytime</div>
-          <ul>
-            <li>Multi-location</li>
-            <li>SMS & Call reminders</li>
-            <li>Priority support</li>
-          </ul>
-          <a class="btn-cta cta-month" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" rel="noopener" aria-label="Checkout: Pro (monthly)">Choose Monthly</a>
-          <a class="btn-ghost cta-year" href="https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605" rel="noopener" aria-label="Checkout: Pro (yearly)" style="display:none">Choose Yearly</a>
-        </article>
+          <article class="plan" data-month="199" aria-labelledby="pro-title">
+            <h3 id="pro-title">Pro</h3>
+            <div class="price"><span class="amount">$199</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul>
+              <li>Multi-location</li>
+              <li>SMS & Call reminders</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn-cta cta-month" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" rel="noopener" aria-label="Checkout: Pro (monthly)">Choose Monthly</a>
+            <a class="btn-ghost cta-year" href="https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605" rel="noopener" aria-label="Checkout: Pro (yearly)" style="display:none">Choose Yearly</a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -194,31 +198,6 @@
           <div class="card"><h3>Flexible channels</h3><p>Start with SMS today; add voice calls anytime.</p></div>
           <div class="card"><h3>Stops on pickup</h3><p>Customer taps a link or you mark “Picked”. Reminders stop instantly.</p></div>
           <div class="card"><h3>Compliant by default</h3><p>Store name in every message, STOP/HELP, quiet hours, and opt-in logs.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5) FAQ (BOTTOM) -->
-    <section id="faq">
-      <div class="container">
-        <h2>FAQ</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Does this replace our CRM?</h3>
-            <p>No. MyLaundryReminder is a pickup-reminder layer. Keep your POS/CRM — we only handle the daily reminder loop.</p>
-          </div>
-          <div class="card">
-            <h3>Which channels are supported?</h3>
-            <p>SMS and Call at launch. WhatsApp can be added later.</p>
-          </div>
-          <div class="card">
-            <h3>How do reminders stop?</h3>
-            <p>Customer taps the link in any reminder or replies DONE (for SMS). Staff can also mark “Picked” in the portal.</p>
-          </div>
-          <div class="card">
-            <h3>Do you support quiet hours?</h3>
-            <p>Yes—set execution windows so messages send only during business hours.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -253,7 +232,7 @@
           const period = card.querySelector('.period');
           const ctaMonth = card.querySelector('.cta-month');
           const ctaYear  = card.querySelector('.cta-year');
-          if(yearly){
+        if(yearly){
             // Yearly = 10 × monthly (2 months free)
             const yearlyPrice = (month * 10).toLocaleString();
             amount.textContent = `$${yearlyPrice}`;
@@ -279,4 +258,5 @@
   </script>
 </body>
 </html>
+
 
