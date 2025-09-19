@@ -8,10 +8,7 @@
   <link rel="canonical" href="https://mylaundryreminder.com/" />
   <meta name="theme-color" content="#1e90ff" />
   <style>
-    :root{
-      --brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2;
-      --text:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#fff
-    }
+    :root{ --brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2; --text:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#fff }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial}
     a{color:inherit;text-decoration:none}
@@ -57,6 +54,15 @@
     .plan--popular{border-color:var(--brand-600);box-shadow:0 12px 32px rgba(30,144,255,.18)}
     .ribbon{position:absolute;top:12px;right:-34px;transform:rotate(45deg);background:var(--brand);color:#fff;padding:4px 48px;font-size:.75rem;font-weight:800;letter-spacing:.02em;box-shadow:0 8px 18px rgba(30,144,255,.35)}
 
+    /* Billing toggle */
+    .billing{display:flex;align-items:center;gap:10px;margin:8px 0 18px}
+    .toggle{position:relative;width:64px;height:32px;border-radius:999px;background:#e2e8f0;border:1px solid var(--border);cursor:pointer}
+    .toggle:after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12);transition:.2s}
+    .toggle[aria-pressed="true"]{background:linear-gradient(180deg,var(--brand),var(--brand-600));}
+    .toggle[aria-pressed="true"]:after{left:35px}
+    .billing .label{font-weight:800;color:var(--muted)}
+    .save-pill{display:inline-block;margin-left:6px;background:rgba(30,144,255,.12);border:1px solid rgba(30,144,255,.25);color:var(--brand-700);padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:800;letter-spacing:.02em}
+
     /* Phone link with icon */
     .phone-link{display:inline-flex;align-items:center;gap:8px}
     .phone-link svg{width:16px;height:16px;display:block}
@@ -66,7 +72,7 @@
 
     @media(prefers-reduced-motion:reduce){.btn-cta{transition:none}.btn-cta:hover{transform:none}}
   </style>
-  <!-- NOTE: If you show "30-day free trial" below, ensure your Stripe products have a 30-day trial configured. -->
+  <!-- NOTE: If you show "30-day free trial", be sure your Stripe products have a 30-day trial configured. -->
 </head>
 <body>
   <header>
@@ -110,46 +116,57 @@
     <section id="pricing">
       <div class="container">
         <h2>Operators Plans</h2>
-        <p class="sub">All plans include daily reminder loops, portal access, and compliance controls. <strong>Billed monthly.</strong></p>
+        <p class="sub">All plans include daily reminder loops, portal access, and compliance controls. <strong>Billed monthly or yearly</strong> <span class="save-pill">Yearly: 2 months free</span></p>
 
-        <div class="pricing-grid">
-          <article class="plan plan--popular" aria-labelledby="growth-title">
-            <span class="ribbon" aria-hidden="true">MOST POPULAR</span>
-            <h3 id="growth-title">Growth</h3>
-            <div class="price">$99 <span class="period">/month</span></div>
-            <div class="trial">30-day free trial</div>
-            <ul>
-              <li>Up to 3 locations</li>
-              <li>SMS & Call reminders</li>
-              <li>Review nudges (optional)</li>
-            </ul>
-            <a class="btn-cta" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" rel="noopener" aria-label="Checkout: Growth">Choose Growth</a>
-          </article>
+      <!-- Billing toggle -->
+      <div class="billing" role="group" aria-label="Billing period">
+        <span class="label">Monthly</span>
+        <button class="toggle" id="billToggle" type="button" aria-pressed="false" aria-label="Toggle yearly billing"></button>
+        <span class="label">Yearly</span>
+      </div>
 
-          <article class="plan" aria-labelledby="pro-title">
-            <h3 id="pro-title">Pro</h3>
-            <div class="price">$199 <span class="period">/month</span></div>
-            <div class="trial">30-day free trial</div>
-            <ul>
-              <li>Multi-location</li>
-              <li>SMS & Call reminders</li>
-              <li>Priority support</li>
-            </ul>
-            <a class="btn-cta" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" rel="noopener" aria-label="Checkout: Pro">Choose Pro</a>
-          </article>
+      <div class="pricing-grid" id="plans">
+        <article class="plan" data-month="49" aria-labelledby="single-title">
+          <h3 id="single-title">Single Store</h3>
+          <div class="price"><span class="amount">$49</span> <span class="period">/month</span></div>
+          <div class="trial">30-day free trial · Cancel anytime</div>
+          <ul>
+            <li>1 location</li>
+            <li>SMS & Call reminders</li>
+            <li>Core analytics</li>
+          </ul>
+          <!-- Monthly link (works now) -->
+          <a class="btn-cta cta-month" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" rel="noopener" aria-label="Checkout: Single Store (monthly)">Choose Monthly</a>
+          <!-- Yearly link -->
+          <a class="btn-ghost cta-year" href="https://buy.stripe.com/3cI28s4xieKjdRieVJg3607" rel="noopener" aria-label="Checkout: Single Store (yearly)" style="display:none">Choose Yearly</a>
+        </article>
 
-          <article class="plan" aria-labelledby="single-title">
-            <h3 id="single-title">Single Store</h3>
-            <div class="price">$49 <span class="period">/month</span></div>
-            <div class="trial">30-day free trial</div>
-            <ul>
-              <li>1 location</li>
-              <li>SMS & Call reminders</li>
-              <li>Core analytics</li>
-            </ul>
-            <a class="btn-cta" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" rel="noopener" aria-label="Checkout: Single Store">Choose Single Store</a>
-          </article>
-        </div>
+        <article class="plan plan--popular" data-month="99" aria-labelledby="growth-title">
+          <span class="ribbon" aria-hidden="true">MOST POPULAR</span>
+          <h3 id="growth-title">Growth</h3>
+          <div class="price"><span class="amount">$99</span> <span class="period">/month</span></div>
+          <div class="trial">30-day free trial · Cancel anytime</div>
+          <ul>
+            <li>Up to 3 locations</li>
+            <li>SMS & Call reminders</li>
+            <li>Review nudges (optional)</li>
+          </ul>
+          <a class="btn-cta cta-month" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" rel="noopener" aria-label="Checkout: Growth (monthly)">Choose Monthly</a>
+          <a class="btn-ghost cta-year" href="https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606" rel="noopener" aria-label="Checkout: Growth (yearly)" style="display:none">Choose Yearly</a>
+        </article>
+
+        <article class="plan" data-month="199" aria-labelledby="pro-title">
+          <h3 id="pro-title">Pro</h3>
+          <div class="price"><span class="amount">$199</span> <span class="period">/month</span></div>
+          <div class="trial">30-day free trial · Cancel anytime</div>
+          <ul>
+            <li>Multi-location</li>
+            <li>SMS & Call reminders</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="btn-cta cta-month" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" rel="noopener" aria-label="Checkout: Pro (monthly)">Choose Monthly</a>
+          <a class="btn-ghost cta-year" href="https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605" rel="noopener" aria-label="Checkout: Pro (yearly)" style="display:none">Choose Yearly</a>
+        </article>
       </div>
     </section>
 
@@ -224,6 +241,41 @@
         if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
       })
     });
+
+    // Monthly / Yearly toggle logic
+    (function(){
+      const toggle = document.getElementById('billToggle');
+      const plans = document.querySelectorAll('#plans .plan');
+      function setMode(yearly){
+        plans.forEach(card=>{
+          const month = Number(card.getAttribute('data-month'));
+          const amount = card.querySelector('.amount');
+          const period = card.querySelector('.period');
+          const ctaMonth = card.querySelector('.cta-month');
+          const ctaYear  = card.querySelector('.cta-year');
+          if(yearly){
+            // Yearly = 10 × monthly (2 months free)
+            const yearlyPrice = (month * 10).toLocaleString();
+            amount.textContent = `$${yearlyPrice}`;
+            period.textContent = '/year';
+            if(ctaMonth) ctaMonth.style.display = 'none';
+            if(ctaYear)  ctaYear.style.display  = 'inline-flex';
+          }else{
+            amount.textContent = `$${month}`;
+            period.textContent = '/month';
+            if(ctaMonth) ctaMonth.style.display = 'inline-flex';
+            if(ctaYear)  ctaYear.style.display  = 'none';
+          }
+        });
+      }
+      // default: monthly
+      setMode(false);
+      toggle.addEventListener('click', ()=>{
+        const yearly = toggle.getAttribute('aria-pressed') === 'true' ? false : true;
+        toggle.setAttribute('aria-pressed', yearly ? 'true' : 'false');
+        setMode(yearly);
+      });
+    })();
   </script>
 </body>
 </html>
