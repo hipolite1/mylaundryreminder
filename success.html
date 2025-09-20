@@ -19,21 +19,28 @@
 <body>
   <div class="container">
     <h1>You're in! 🎉</h1>
-    <p class="muted" id="planCopy">Thanks for starting your 30-day free trial. A receipt has been emailed to you.</p>
+    <p class="muted" id="planCopy">Thanks for starting your 30-day free trial.</p>
+
     <div class="row">
-      <a class="btn btn-primary" href="https://portal.mylaundryreminder.com/welcome" rel="noopener">Open Subscriber Portal</a>
+      <!-- UPDATED: point to portal root (works), not /welcome -->
+      <a class="btn btn-primary" href="https://portal.mylaundryreminder.com" rel="noopener">Open Subscriber Portal</a>
       <a class="btn" href="/">Back to Home</a>
     </div>
+
+    <p class="muted" style="margin-top:14px">
+      Tip: If your portal uses a different start page, replace the button link with that exact URL.
+    </p>
   </div>
 
   <script>
-    // Personalize with ?plan=single|growth|pro (coming from Stripe redirect)
+    // Personalize with ?plan=single|growth|pro
     const names = {single:'Single Store', growth:'Growth', pro:'Pro'};
     const p = new URLSearchParams(location.search).get('plan');
     if (names[p]) {
       document.getElementById('planCopy').textContent =
-        `Thanks for choosing the ${names[p]} plan. Your 30-day free trial has started. A receipt has been emailed to you.`;
+        `Thanks for choosing the ${names[p]} plan. Your 30-day free trial has started.`;
     }
   </script>
 </body>
 </html>
+
