@@ -6,7 +6,10 @@
   <title>MyLaundryReminder — Automated pickup reminders for your customers</title>
   <meta name="description" content="Daily pickup reminders by SMS/Call for dry cleaners. Staff enter name, phone, due date; reminders send daily until pickup, then stop automatically." />
   <link rel="canonical" href="https://mylaundryreminder.com/" />
-  <meta name="theme-color" content="#1e90ff" />
+  <meta name="theme-color" content="#1e90ff" />/* --- Announcement bar --- */
+.announce{background:#f0f9ff;border-bottom:1px solid #e2e8f0;text-align:center;padding:8px 12px;font-weight:600}
+.announce a{color:#1e90ff;text-decoration:none}
+.announce a:hover{text-decoration:underline}
   <style>
     :root{
       --brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2;
@@ -77,7 +80,9 @@
   </style>
   <!-- NOTE: If you show "30-day free trial", make sure your Stripe products are configured with a 30-day trial. -->
 </head>
-<body>
+<body><div class="announce">
+    Now serving Texas dry cleaners — <a href="/texas.html">see the Texas page</a>
+  </div>
   <header>
     <div class="container nav">
       <a href="/" class="brand-title" aria-label="MyLaundryReminder home">MyLaundryReminder</a>
