@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Texas Dry Cleaner Pickup Reminders | MyLaundryReminder</title>
+<meta name="description" content="Automated daily SMS reminders for Texas dry cleaners. Simple, reliable, 30-day free trial. Cancel anytime." />
+<link rel="icon" href="/favicon.ico" />
+<style>
+  :root{
+    --brand:#1e90ff;--text:#0f172a;--muted:#475569;--bg:#ffffff;--border:#e2e8f0;--ok:#16a34a
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.02em}
+  .brand .tag{font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+  .navlinks{display:flex;align-items:center;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);font-weight:700}
+  .btn-ghost{background:#fff}
+  .btn-primary{background:var(--brand);color:#fff;border-color:transparent}
+  .hero{padding:56px 0 24px}
+  h1{margin:0 0 10px;font-size:42px;line-height:1.15;letter-spacing:-.02em}
+  h2{margin:0 0 8px;font-size:28px;letter-spacing:-.01em}
+  p.lead{color:var(--muted);max-width:720px}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .badge{font-size:13px;color:#0f172a;border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff}
+  .section{padding:36px 0;border-top:1px solid var(--border)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{border:1px solid var(--border);border-radius:16px;padding:18px;background:#fff}
+  .card h3{margin:0 0 6px}
+  .muted{color:var(--muted)}
+  .check{color:var(--ok)}
+  .pricing-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .toggle{display:flex;align-items:center;gap:8px;font-weight:700}
+  .switch{position:relative;width:46px;height:26px;border-radius:999px;background:#e5e7eb;border:1px solid var(--border);cursor:pointer}
+  .knob{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:all .2s}
+  .switch.active{background:#bfdbfe;border-color:#93c5fd}
+  .switch.active .knob{left:24px}
+  .price{font-size:28px;font-weight:900;letter-spacing:-.01em}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
+  .small{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <span>MyLaundryReminder</span>
+      <span class="tag">Texas</span>
+    </div>
+    <nav class="navlinks">
+      <a class="btn btn-ghost" href="/#how">How it works</a>
+      <a class="btn btn-ghost" href="#pricing">Pricing</a>
+      <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/add-pickup" rel="noopener">Subscriber Portal</a>
+      <a class="btn btn-primary" href="#pricing">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="container hero" id="how">
+    <h1>Automated pickup reminders for Texas dry cleaners</h1>
+    <p class="lead">Capture a customer’s name, phone, and due date. On the due date, we text a reminder at your set hour, then one each day until they pick up. Customers can reply <b>DONE</b> to stop reminders. 30-day free trial. Cancel anytime.</p>
+    <div class="badge-row">
+      <span class="badge">Austin</span>
+      <span class="badge">Dallas</span>
+      <span class="badge">Houston</span>
+      <span class="badge">San Antonio</span>
+      <span class="badge">Fort Worth</span>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="grid">
+      <div class="card">
+        <h2>How it works</h2>
+        <p class="muted">Simple A→Z for your team:</p>
+        <ul>
+          <li><span class="check">✓</span> Add a pickup in the portal (name, phone, <b>Due Date</b>).</li>
+          <li><span class="check">✓</span> On the Due Date (e.g., 10:00 AM Central), customer gets SMS.</li>
+          <li><span class="check">✓</span> If not picked up, we send one SMS per day.</li>
+          <li><span class="check">✓</span> Customer replies <b>DONE</b> or staff marks <b>Picked</b> — reminders stop.</li>
+          <li><span class="check">✓</span> Works with your current POS/CRM; no migration.</li>
+        </ul>
+        <div class="badge-row"><a class="btn btn-primary" href="https://portal.mylaundryreminder.com/add-pickup">Add a Pickup</a></div>
+      </div>
+      <div class="card">
+        <h2>Why Texas shops love it</h2>
+        <ul>
+          <li><span class="check">✓</span> Reduce racks-full of uncollected orders</li>
+          <li><span class="check">✓</span> Hands-off reminders (we handle the schedule)</li>
+          <li><span class="check">✓</span> Customers can opt out with STOP (carrier compliant)</li>
+          <li><span class="check">✓</span> Fast setup — live in under 15 minutes</li>
+        </ul>
+        <p class="small">Need help? Email <a href="mailto:hello@mylaundryreminder.com">hello@mylaundryreminder.com</a>.</p>
+      </div>
+      <div class="card">
+        <h2>Questions?</h2>
+        <p class="muted">Call us: <b>(**TX**) ***-****</b> or email <a href="mailto:hello@mylaundryreminder.com">hello@mylaundryreminder.com</a>.</p>
+        <p class="small">Central Time scheduling supported.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section" id="pricing">
+    <div class="pricing-head">
+      <h2>Operator Plans</h2>
+      <div class="toggle">
+        <span id="labelMonthly">Monthly</span>
+        <div id="switch" class="switch" role="switch" aria-checked="false" tabindex="0"><div class="knob"></div></div>
+        <span id="labelYearly">Yearly</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Single Store -->
+      <div class="card">
+        <h3>Single Store</h3>
+        <div class="price" data-plan="single-price">$49</div>
+        <p class="muted">30-day free trial. <b>Cancel anytime.</b> <span class="small" id="singleNote">Billed monthly</span></p>
+        <ul>
+          <li><span class="check">✓</span> 1 location</li>
+          <li><span class="check">✓</span> Daily SMS reminders</li>
+          <li><span class="check">✓</span> “DONE” reply stops reminders</li>
+        </ul>
+        <a class="btn btn-primary"
+           data-plan="single-btn"
+           data-link-month="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602"
+           data-link-year="https://buy.stripe.com/3cI28s4xieKjdRieVJg3607"
+           href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602">Start free trial</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="card">
+        <h3>Growth</h3>
+        <div class="price" data-plan="growth-price">$99</div>
+        <p class="muted">30-day free trial. <b>Cancel anytime.</b> <span class="small" id="growthNote">Billed monthly</span></p>
+        <ul>
+          <li><span class="check">✓</span> Up to 3 locations</li>
+          <li><span class="check">✓</span> Centralized portal</li>
+          <li><span class="check">✓</span> Priority support</li>
+        </ul>
+        <a class="btn btn-primary"
+           data-plan="growth-btn"
+           data-link-month="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601"
+           data-link-year="https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606"
+           href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601">Start free trial</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="card">
+        <h3>Pro</h3>
+        <div class="price" data-plan="pro-price">$199</div>
+        <p class="muted">30-day free trial. <b>Cancel anytime.</b> <span class="small" id="proNote">Billed monthly</span></p>
+        <ul>
+          <li><span class="check">✓</span> 4+ locations</li>
+          <li><span class="check">✓</span> Advanced controls</li>
+          <li><span class="check">✓</span> White-glove onboarding</li>
+        </ul>
+        <a class="btn btn-primary"
+           data-plan="pro-btn"
+           data-link-month="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600"
+           data-link-year="https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605"
+           href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600">Start free trial</a>
+      </div>
+    </div>
+    <p class="small">Yearly = billed annually via Stripe. Prices shown are monthly equivalents.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div>© <span id="yr"></span> MyLaundryReminder — Built for Texas dry cleaners</div>
+    <div class="small">Questions? <a href="mailto:hello@mylaundryreminder.com">hello@mylaundryreminder.com</a></div>
+  </div>
+</footer>
+
+<script>
+  // Yearly/Monthly toggle
+  const sw = document.getElementById('switch');
+  const toggle = () => {
+    const yearly = sw.classList.toggle('active');
+    const plans = [
+      {btn:'single-btn', note:'singleNote'},
+      {btn:'growth-btn', note:'growthNote'},
+      {btn:'pro-btn', note:'proNote'}
+    ];
+    plans.forEach(p=>{
+      const a = document.querySelector(`[data-plan="${p.btn}"]`);
+      const note = document.getElementById(p.note);
+      if(!a||!note) return;
+      a.href = a.getAttribute(yearly ? 'data-link-year' : 'data-link-month');
+      note.textContent = yearly ? 'Billed annually' : 'Billed monthly';
+    });
+  };
+  sw.addEventListener('click', toggle);
+  sw.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }});
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
