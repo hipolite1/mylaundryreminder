@@ -174,9 +174,18 @@
 
 <footer>
   <div class="container">
-    <div>© <span id="yr"></span> MyLaundryReminder — Built for Texas dry cleaners</div>
-    <div class="small">Questions? <a href="mailto:hello@mylaundryreminder.com">hello@mylaundryreminder.com</a></div>
+    <div>© <span id="yr"></span> MyLaundryReminder. All rights reserved.</div>
+    <div style="margin-top:6px">
+      Questions? <a href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a>
+    </div>
+    <div class="small">
+      <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a>
+    </div>
   </div>
+</footer>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </footer>
 
 <script>
