@@ -279,3 +279,284 @@
 </body>
 </html>
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyLaundryReminder — Automated pickup reminders for your customers</title>
+  <meta name="description" content="Daily pickup reminders by SMS/Call for dry cleaners. Staff enter name, phone, due date; reminders send daily until pickup, then stop automatically." />
+  <link rel="canonical" href="https://mylaundryreminder.com/" />
+  <meta name="theme-color" content="#1e90ff" />
+  <style> 
+    :root{
+      --brand:#1e90ff;--brand-600:#1778d0;--brand-700:#0f5ca2;
+      --text:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#fff
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand-title{font-weight:900;font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.05;letter-spacing:-.03em;background:linear-gradient(90deg,#1e90ff,#00c2ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(0,0,0,.04)}
+    .nav .right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .btn,.btn-cta{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;font-weight:700;border:1px solid transparent}
+    .btn-ghost{border-color:var(--border)}
+    .btn-ghost:hover{border-color:var(--brand)}
+    .btn-cta{background:linear-gradient(180deg,var(--brand),var(--brand-600));color:#fff}
+    .btn-cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(30,144,255,.25);background:linear-gradient(180deg,var(--brand-600),var(--brand-700))}
+
+    /* Sections */
+    section{padding:38px 0;border-top:1px solid var(--border)}
+    h1,h2{letter-spacing:-.02em;margin:0 0 10px}
+    h1{font-weight:900;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.05}
+    h2{font-weight:800;font-size:clamp(1.35rem,3.2vw,1.9rem)}
+    .sub{color:var(--muted);margin:0 0 14px}
+    .badge{display:inline-block;background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.25);color:var(--brand-700);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.03em}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+    /* Grids */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 6px 24px rgba(2,6,23,.06);padding:18px}
+    .card h3{margin:0 0 6px;font-size:1.05rem}
+    .how-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px}
+    .step .num{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:800;margin-right:8px}
+
+    /* Pricing */
+    .pricing-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .plan{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;flex-direction:column;position:relative}
+    .plan h3{margin:0 0 8px}
+    .plan ul{margin:0 18px 18px 18px}
+    .plan li{margin:8px 0}
+    .price{font-weight:900;font-size:1.9rem;margin:6px 0 6px}
+    .price .period{color:var(--muted);font-weight:600;font-size:1rem;margin-left:6px}
+    .trial{color:var(--brand-700);font-weight:700;font-size:.95rem;margin:2px 0 12px}
+    .plan--popular{border-color:var(--brand-600);box-shadow:0 12px 32px rgba(30,144,255,.18)}
+    .ribbon{position:absolute;top:12px;right:-34px;transform:rotate(45deg);background:var(--brand);color:#fff;padding:4px 48px;font-size:.75rem;font-weight:800;letter-spacing:.02em;box-shadow:0 8px 18px rgba(30,144,255,.35)}
+
+    /* Billing toggle */
+    .billing{display:flex;align-items:center;gap:10px;margin:8px 0 18px}
+    .toggle{position:relative;width:64px;height:32px;border-radius:999px;background:#e2e8f0;border:1px solid var(--border);cursor:pointer}
+    .toggle:after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12);transition:.2s}
+    .toggle[aria-pressed="true"]{background:linear-gradient(180deg,var(--brand),var(--brand-600));}
+    .toggle[aria-pressed="true"]:after{left:35px}
+    .billing .label{font-weight:800;color:var(--muted)}
+    .save-pill{display:inline-block;margin-left:6px;background:rgba(30,144,255,.12);border:1px solid rgba(30,144,255,.25);color:var(--brand-700);padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:800;letter-spacing:.02em}
+
+    /* Phone link with icon */
+    .phone-link{display:inline-flex;align-items:center;gap:8px}
+    .phone-link svg{width:16px;height:16px;display:block}
+
+    /* Footer */
+    footer{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.95rem}
+
+    @media(prefers-reduced-motion:reduce){.btn-cta{transition:none}.btn-cta:hover{transform:none}}
+  </style>
+  <!-- NOTE: If you show "30-day free trial", make sure your Stripe products are configured with a 30-day trial. -->
+</head>
+<body> <a href="/texas.html"
+     style="display:block;background:#f0f9ff;border-bottom:1px solid #e2e8f0;
+            text-align:center;padding:10px 12px;font-weight:700;color:#0f172a;text-decoration:none;">
+    <span style="display:inline-flex;align-items:center;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;
+                   border-radius:999px;background:#1e90ff;color:#fff;font-size:12px;line-height:22px;">TX</span>
+      Now serving Texas dry cleaners — <span style="text-decoration:underline;">see the Texas page</span>
+    </span>
+  </a>
+  <header>
+    <div class="container nav">
+      <a href="/" class="brand-title" aria-label="MyLaundryReminder home">MyLaundryReminder</a>
+      <nav class="right" aria-label="Primary">
+        <a class="btn-ghost" href="#reminders">Reminders</a>
+        <a class="btn-ghost" href="#pricing">Operators Plans</a>
+        <a class="btn-ghost" href="#how">How it works</a>
+        <a class="btn-ghost" href="/texas.html">Texas</a>
+<a class="btn-ghost" href="/new-york.html">New York</a>
+<a class="btn-ghost" href="/california.html">California</a>
+        <a class="btn-ghost" href="#faq">FAQ</a>
+
+        <!-- Phone (replace with your real number) -->
+        <a class="btn-ghost phone-link" href="tel:+12494442071" aria-label="Call MyLaundryReminder">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.1.74.26 1.47.5 2.17a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.9-1.06a2 2 0 0 1 2.11-.45c.7.24 1.43.4 2.17.5A2 2 0 0 1 22 16.92z"/></svg>
+          <span>(249) 444-2071</span>
+        </a>
+
+        <!-- Simple, working portal link -->
+        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome" rel="noopener">Subscriber Portal</a>
+
+        <a class="btn-cta" href="#pricing">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1) HERO / REMINDERS FIRST -->
+    <section id="reminders">
+      <div class="container">
+        <span class="badge">Automated pickup reminders for your customers</span>
+        <h1>Daily pickup reminders by SMS/Call — until garments are collected.</h1>
+        <p class="sub">Staff enters customer name, phone, and due date. On the due date, we send one reminder per day via your chosen channel. When they pick up (or you mark it), reminders stop automatically.</p>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/add-pickup" rel="noopener">Add a Pickup</a>
+          <a class="btn-cta" href="#pricing">See Operators Plans</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) OPERATORS PLANS (PRICING) -->
+    <section id="pricing">
+      <div class="container">
+        <h2>Operators Plans</h2>
+        <p class="sub">All plans include daily reminder loops, portal access, and compliance controls. <strong>Billed monthly or yearly</strong> <span class="save-pill">Yearly: 2 months free</span></p>
+
+        <!-- Billing toggle -->
+        <div class="billing" role="group" aria-label="Billing period">
+          <span class="label">Monthly</span>
+          <button class="toggle" id="billToggle" type="button" aria-pressed="false" aria-label="Toggle yearly billing"></button>
+          <span class="label">Yearly</span>
+        </div>
+
+        <div class="pricing-grid" id="plans">
+          <article class="plan" data-month="49" aria-labelledby="single-title">
+            <h3 id="single-title">Single Store</h3>
+            <div class="price"><span class="amount">$49</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul>
+              <li>1 location</li>
+              <li>SMS & Call reminders</li>
+              <li>Core analytics</li>
+            </ul>
+            <!-- Monthly link (works now) -->
+            <a class="btn-cta cta-month" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" rel="noopener" aria-label="Checkout: Single Store (monthly)">Choose Monthly</a>
+            <!-- Yearly link -->
+            <a class="btn-ghost cta-year" href="https://buy.stripe.com/3cI28s4xieKjdRieVJg3607" rel="noopener" aria-label="Checkout: Single Store (yearly)" style="display:none">Choose Yearly</a>
+          </article>
+
+          <article class="plan plan--popular" data-month="99" aria-labelledby="growth-title">
+            <span class="ribbon" aria-hidden="true">MOST POPULAR</span>
+            <h3 id="growth-title">Growth</h3>
+            <div class="price"><span class="amount">$99</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul>
+              <li>Up to 3 locations</li>
+              <li>SMS & Call reminders</li>
+              <li>Review nudges (optional)</li>
+            </ul>
+            <a class="btn-cta cta-month" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" rel="noopener" aria-label="Checkout: Growth (monthly)">Choose Monthly</a>
+            <a class="btn-ghost cta-year" href="https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606" rel="noopener" aria-label="Checkout: Growth (yearly)" style="display:none">Choose Yearly</a>
+          </article>
+
+          <article class="plan" data-month="199" aria-labelledby="pro-title">
+            <h3 id="pro-title">Pro</h3>
+            <div class="price"><span class="amount">$199</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul>
+              <li>Multi-location</li>
+              <li>SMS & Call reminders</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn-cta cta-month" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" rel="noopener" aria-label="Checkout: Pro (monthly)">Choose Monthly</a>
+            <a class="btn-ghost cta-year" href="https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605" rel="noopener" aria-label="Checkout: Pro (yearly)" style="display:none">Choose Yearly</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) HOW IT WORKS -->
+    <section id="how">
+      <div class="container">
+        <h2>How it works</h2>
+        <p class="sub">Exactly what happens for your team and your customers.</p>
+        <div class="how-grid">
+          <div class="step"><div class="num">1</div><strong>Subscribe</strong><br />Pick a plan and get access to your portal.</div>
+          <div class="step"><div class="num">2</div><strong>Enter pickups</strong><br />Staff add customer name, phone, due date; choose reminder channel(s).</div>
+          <div class="step"><div class="num">3</div><strong>We remind daily</strong><br />On/after the due date, we send one reminder per day via SMS/Call.</div>
+          <div class="step"><div class="num">4</div><strong>Stop on pickup</strong><br />Customer taps a link or you mark it picked — the loop stops automatically.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) BENEFITS -->
+    <section id="benefits">
+      <div class="container">
+        <h2>Why dry cleaners use MyLaundryReminder</h2>
+        <p class="sub">Reduce unclaimed orders, speed up rack turnover, and increase repeat visits — without changing your POS or CRM.</p>
+        <div class="grid">
+          <div class="card"><h3>Simple workflow</h3><p>Staff add a customer with due date; everything else is automatic.</p></div>
+          <div class="card"><h3>Flexible channels</h3><p>Start with SMS today; add voice calls anytime.</p></div>
+          <div class="card"><h3>Stops on pickup</h3><p>Customer taps a link or you mark “Picked”. Reminders stop instantly.</p></div>
+          <div class="card"><h3>Compliant by default</h3><p>Store name in every message, STOP/HELP, quiet hours, and opt-in logs.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+     <div class="container">
+    <div>© <span id="yr"></span> MyLaundryReminder. All rights reserved.</div>
+    <div style="margin-top:6px">
+      Questions? <a href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a>
+    </div>
+    <div class="small">
+      <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+  </footer>
+
+  <script>
+    // dynamic year + smooth scroll for in-page anchors
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+      })
+    });
+
+    // Monthly / Yearly toggle logic
+    (function(){
+      const toggle = document.getElementById('billToggle');
+      const plans = document.querySelectorAll('#plans .plan');
+      function setMode(yearly){
+        plans.forEach(card=>{
+          const month = Number(card.getAttribute('data-month'));
+          const amount = card.querySelector('.amount');
+          const period = card.querySelector('.period');
+          const ctaMonth = card.querySelector('.cta-month');
+          const ctaYear  = card.querySelector('.cta-year');
+        if(yearly){
+            // Yearly = 10 × monthly (2 months free)
+            const yearlyPrice = (month * 10).toLocaleString();
+            amount.textContent = `$${yearlyPrice}`;
+            period.textContent = '/year';
+            if(ctaMonth) ctaMonth.style.display = 'none';
+            if(ctaYear)  ctaYear.style.display  = 'inline-flex';
+          }else{
+            amount.textContent = `$${month}`;
+            period.textContent = '/month';
+            if(ctaMonth) ctaMonth.style.display = 'inline-flex';
+            if(ctaYear)  ctaYear.style.display  = 'none';
+          }
+        });
+      }
+      // default: monthly
+      setMode(false);
+      toggle.addEventListener('click', ()=>{
+        const yearly = toggle.getAttribute('aria-pressed') === 'true' ? false : true;
+        toggle.setAttribute('aria-pressed', yearly ? 'true' : 'false');
+        setMode(yearly);
+      });
+    })();
+  </script>
+</body>
+</html>
+
