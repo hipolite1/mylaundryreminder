@@ -188,14 +188,16 @@
 </main>
 <footer>
   <div class="container">
-    <div>© <span id="yr"></span> MyLaundryReminder. All rights reserved.</div>
-    <div style="margin-top:6px">
-      Questions? <a href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a>
-    </div>
+    <div>© <span id="yr"></span> MyLaundryReminder — Built for California dry cleaners</div>
     <div class="small">
-      <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a>
+      Questions? <a href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a>
+      . <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a>
     </div>
   </div>
+</footer>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </footer>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
