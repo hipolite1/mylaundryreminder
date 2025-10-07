@@ -31,7 +31,7 @@
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.02em}
   .brand .tag{font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
-  .navlinks{display:flex;align-items:center;gap:14px}
+  .navlinks{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);font-weight:700}
   .btn-ghost{background:#fff}
   .btn-primary{background:var(--brand);color:#fff;border-color:transparent}
@@ -56,6 +56,22 @@
   .price{font-size:28px;font-weight:900;letter-spacing:-.01em}
   footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
   .small{font-size:13px;color:var(--muted)}
+
+  /* === Mobile polish (<= 768px) === */
+  @media (max-width:768px){
+    .container{padding:0 14px}
+    .nav{flex-wrap:wrap;height:auto;padding:10px 0;gap:10px}
+    .navlinks{width:100%;gap:8px}
+    h1{font-size:clamp(1.8rem,8vw,2.2rem);line-height:1.15}
+    h2{font-size:clamp(1.2rem,5vw,1.6rem)}
+    .section{padding:28px 0}
+    .btn{min-height:44px}
+    .grid{grid-template-columns:1fr}
+    .card{padding:16px;border-radius:14px}
+  }
+
+  /* Prevent sticky header overlap for anchor jumps */
+  :target{scroll-margin-top:80px}
 </style>
 </head>
 <body>
@@ -186,25 +202,21 @@
     <p class="small">Yearly = billed annually via Stripe. Prices shown are monthly equivalents.</p>
   </section>
 </main>
+
 <footer>
   <div class="container">
-    <div>© <span id="yr"></span> MyLaundryReminder — Built for California dry cleaners</div>
+    <div>© <span id="yr"></span> MyLaundryReminder — Built for New York dry cleaners</div>
     <div class="small">
       Questions? <a href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a>
       . <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a>
     </div>
   </div>
 </footer>
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
-</footer>
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
-</footer>
 
 <script>
+  // dynamic year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
   // Yearly/Monthly toggle
   const sw = document.getElementById('switch');
   const toggle = () => {
@@ -222,9 +234,11 @@
       note.textContent = yearly ? 'Billed annually' : 'Billed monthly';
     });
   };
-  sw.addEventListener('click', toggle);
-  sw.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }});
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  if (sw) {
+    sw.addEventListener('click', toggle);
+    sw.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }});
+  }
 </script>
 </body>
 </html>
+
