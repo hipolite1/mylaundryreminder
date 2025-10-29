@@ -74,7 +74,7 @@
     /* Footer */
     footer{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.95rem}
 
-    /* State links: mid-size + highlight (moved into <style> to prevent raw code on page) */
+    /* State links */
     .state-link{
       font-size:15px; font-weight:800; color:#1e90ff; background:#f0f9ff;
       border:1px solid #93c5fd; border-radius:999px; padding:6px 10px; line-height:1;
@@ -82,6 +82,26 @@
     .state-link:hover{
       background:#1e90ff; color:#fff; border-color:#1e90ff; text-decoration:none;
     }
+
+    /* === Mobile polish (<= 768px) === */
+    @media (max-width: 768px){
+      .container{padding:0 14px}
+      .nav{flex-direction:column;align-items:flex-start;gap:10px;padding:10px 0}
+      .brand-title{font-size:clamp(1.8rem,9vw,2.4rem);line-height:1.1}
+      .nav .right{width:100%;display:flex;flex-wrap:wrap;gap:8px}
+      .nav .right a{padding:10px 12px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center}
+      .state-link{display:inline-flex;margin-right:6px;margin-bottom:6px}
+      section{padding:26px 0}
+      .cta-row{gap:10px;flex-wrap:wrap}
+      .btn, .btn-cta, .btn-ghost{min-height:44px}
+      .grid, .how-grid, .pricing-grid{grid-template-columns:1fr !important;}
+      .card, .step, .plan{padding:16px;border-radius:14px}
+      .phone-link span{font-size:1rem}
+      footer{padding:22px 0}
+    }
+
+    /* Prevent sticky header overlap on anchor jumps */
+    :target{scroll-margin-top:80px}
 
     @media(prefers-reduced-motion:reduce){.btn-cta{transition:none}.btn-cta:hover{transform:none}}
   </style>
@@ -108,12 +128,13 @@
         <a class="btn-ghost state-link" href="/texas.html">Texas</a>
         <a class="btn-ghost state-link" href="/new-york.html">New York</a>
         <a class="btn-ghost state-link" href="/california.html">California</a>
+        <a class="btn-ghost state-link" href="/canada.html">Canada</a>
         <a class="btn-ghost" href="#faq">FAQ</a>
 
         <!-- Phone (replace with your real number) -->
-        <a class="btn-ghost phone-link" href="tel:+12494442071" aria-label="Call MyLaundryReminder">
+        <a class="btn-ghost phone-link" href="tel:+16474939195" aria-label="Call MyLaundryReminder">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.1.74.26 1.47.5 2.17a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.9-1.06a2 2 0 0 1 2.11-.45c.7.24 1.43.4 2.17.5A2 2 0 0 1 22 16.92z"/></svg>
-          <span>(249) 444-2071</span>
+          <span>(647) 493-9195</span>
         </a>
 
         <!-- Simple, working portal link -->
