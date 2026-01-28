@@ -1,1 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Start your 30-day free trial of MyLaundryReminder. Automated SMS & email pickup reminders built for dry cleaners." />
+  <title>Start 30-Day Free Trial | MyLaundryReminder</title>
+
+  <style>
+    :root{
+      /* Theme colors sampled from your logo */
+      --navy: #114884;
+      --blue: #0244B5;
+      --sky:  #4E99FB;
+      --mid:  #1968C3;
+      --ice:  #C3D7EB;
+
+      --text: #0f172a;
+      --muted:#475569;
+      --bg:   #f7fbff;
+      --card: #ffffff;
+      --border:#e5eef9;
+
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(17,72,132,.16);
+      --shadow2: 0 12px 40px rgba(2,68,181,.18);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 20% -10%, rgba(78,153,251,.25), transparent 60%),
+        radial-gradient(1000px 500px at 90% 0%, rgba(195,215,235,.55), transparent 60%),
+        linear-gradient(180deg, #ffffff, var(--bg));
+      line-height:1.5;
+    }
+
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.75);
+      border-bottom: 1px solid rgba(229,238,249,.9);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand img{height:36px;width:auto;display:block}
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border:1px solid rgba(78,153,251,.35);
+      background: rgba(195,215,235,.35);
+      color: var(--navy);
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .nav-cta{display:flex;align-items:center;gap:10px}
+    .btn{
+      appearance:none; border:0; cursor:pointer; text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:700;
+      letter-spacing:.2px;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn-primary{
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      color:white;
+      box-shadow: var(--shadow2);
+    }
+    .btn-primary:hover{transform: translateY(-1px); box-shadow: 0 14px 55px rgba(2,68,181,.25)}
+    .btn-ghost{
+      background: rgba(255,255,255,.65);
+      border:1px solid rgba(17,72,132,.18);
+      color: var(--navy);
+    }
+    .btn-ghost:hover{transform: translateY(-1px); border-color: rgba(17,72,132,.32)}
+    .btn-small{padding:10px 14px; font-size:14px}
+
+    .hero{padding:44px 0 26px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .hero-grid{grid-template-columns:1fr} }
+
+    .headline{
+      background: rgba(255,255,255,.65);
+      border:1px solid rgba(229,238,249,.9);
+      border-radius: var(--radius);
+      padding:26px;
+      box-shadow: var(--shadow);
+    }
+    h1{
+      margin:10px 0 10px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height:1.12;
+      color: var(--navy);
+      letter-spacing:-.6px;
+    }
+    .sub{
+      font-size:18px;
+      color: var(--muted);
+      margin:0 0 14px;
+      max-width: 58ch;
+    }
+    .pricing-callout{
+      margin:0 0 18px;
+      padding:12px 14px;
+      border-radius:14px;
+      background: rgba(195,215,235,.35);
+      border:1px solid rgba(78,153,251,.25);
+      color: var(--navy);
+      font-weight:700;
+      font-size:14px;
+    }
+    .pricing-callout span{font-weight:800}
+    .hero-bullets{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin:18px 0 0;
+    }
+    @media (max-width: 520px){ .hero-bullets{grid-template-columns:1fr} }
+    .check{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(195,215,235,.35);
+      border:1px solid rgba(78,153,251,.25);
+      color: var(--navy);
+      font-weight:600;
+      font-size:14px;
+    }
+    .dot{
+      width:22px; height:22px; flex:0 0 22px;
+      border-radius:999px;
+      background: linear-gradient(180deg, var(--sky), var(--blue));
+      box-shadow: 0 8px 18px rgba(2,68,181,.25);
+      position:relative;
+    }
+    .dot:after{
+      content:"";
+      position:absolute; inset:6px;
+      border-radius:999px;
+      background:white;
+      opacity:.9;
+    }
+
+    .card{
+      background: rgba(255,255,255,.8);
+      border:1px solid rgba(229,238,249,.95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-head{
+      padding:20px 20px 12px;
+      border-bottom:1px solid rgba(229,238,249,.9);
+      background:
+        radial-gradient(800px 240px at 20% -20%, rgba(78,153,251,.22), transparent 60%),
+        radial-gradient(700px 260px at 90% 0%, rgba(195,215,235,.7), transparent 60%),
+        rgba(255,255,255,.55);
+    }
+    .card-title{ margin:0; font-size:18px; color: var(--navy); letter-spacing:-.2px }
+    .card-sub{ margin:6px 0 0; font-size:14px; color: var(--muted) }
+    .badge-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px }
+    .badge{
+      font-size:12px;
+      font-weight:800;
+      color: var(--navy);
+      background: rgba(195,215,235,.45);
+      border:1px solid rgba(78,153,251,.22);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .card-body{padding:18px 20px 20px}
+
+    .fineprint{
+      margin:10px 0 0;
+      font-size:12px;
+      color: var(--muted);
+    }
+    .fineprint strong{color: var(--navy)}
+    .section{ padding:18px 0 42px }
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+    .mini{
+      padding:16px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.75);
+      border:1px solid rgba(229,238,249,.95);
+      box-shadow: var(--shadow);
+    }
+    .mini h3{margin:0 0 6px;color:var(--navy);letter-spacing:-.2px}
+    .mini p{margin:0;color:var(--muted);font-size:14px}
+
+    .footer{
+      padding:28px 0 36px;
+      border-top:1px solid rgba(229,238,249,.95);
+      background: rgba(255,255,255,.65);
+    }
+    .footer small{color: var(--muted)}
+    .footer a{color: var(--navy); text-decoration:none; font-weight:800}
+    .footer a:hover{text-decoration:underline}
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="/" aria-label="MyLaundryReminder Home">
+          <!-- Put your logo in this same folder as: trial/logo.png (or update filename here) -->
+          <img src="logo.png" alt="MyLaundryReminder logo" />
+          <span class="pill">30-Day Free Trial</span>
+        </a>
+
+        <div class="nav-cta">
+          <a class="btn btn-ghost btn-small" href="tel:+16475840962">Call 647-584-0962</a>
+          <a class="btn btn-primary btn-small" href="#start">Start Trial</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="headline">
+          <div class="pill" style="display:inline-flex;">Built for dry cleaners • SMS + Email reminders</div>
+          <h1>Reduce overdue garment pickups — automatically.</h1>
+          <p class="sub">
+            MyLaundryReminder helps dry cleaners speed up pickups with polite, automated reminders to customers
+            when items are ready — without staff chasing anyone.
+          </p>
+
+          <p class="pricing-callout" aria-label="trial pricing terms">
+            <span>30 days free</span>, then <span>$99/month</span> (auto-renews unless cancelled).
+            Cancel anytime before day 30 to avoid being charged.
+          </p>
+
+          <div class="nav-cta" style="justify-content:flex-start; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#start">Start My 30-Day Free Trial</a>
+            <a class="btn btn-ghost" href="#how">See how it works</a>
+          </div>
+
+          <div class="hero-bullets" style="margin-top:16px;">
+            <div class="check"><span class="dot"></span>Less time calling customers</div>
+            <div class="check"><span class="dot"></span>Fewer unclaimed garments</div>
+            <div class="check"><span class="dot"></span>Better customer experience</div>
+            <div class="check"><span class="dot"></span>Simple setup in minutes</div>
+          </div>
+
+          <p class="fineprint">
+            <strong>Credit card required.</strong> No charge during the 30-day trial.
+          </p>
+        </div>
+
+        <!-- SIGNUP CARD -->
+        <div class="card" id="start">
+          <div class="card-head">
+            <p class="card-title">Start your 30-day free trial</p>
+            <p class="card-sub">
+              No charge today. After 30 days, your subscription continues at <strong>$99/month</strong>
+              unless you cancel.
+            </p>
+            <div class="badge-row" aria-label="trial highlights">
+              <span class="badge">30 days free</span>
+              <span class="badge">$99/month after</span>
+              <span class="badge">Auto-renews</span>
+              <span class="badge">Cancel anytime</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <!-- Replace the href below with your Stripe Payment Link -->
+            <a class="btn btn-primary" href="PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE" aria-label="Start trial in Stripe Checkout">
+              Start My 30-Day Free Trial →
+            </a>
+
+            <p class="fineprint">
+              <strong>Trial terms:</strong> Your card will not be charged today. After 30 days, your plan continues at
+              <strong>$99/month</strong> and will automatically renew unless cancelled before the trial ends.
+            </p>
+
+            <p class="fineprint" style="margin-top:8px">
+              Need help? Call <a href="tel:+16475840962"><strong>647-584-0962</strong></a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="grid3">
+        <div class="mini">
+          <h3>1) Mark garments “ready”</h3>
+          <p>As you normally do. No complicated process.</p>
+        </div>
+        <div class="mini">
+          <h3>2) Reminders go out automatically</h3>
+          <p>Polite SMS and/or email reminders are sent based on your rules.</p>
+        </div>
+        <div class="mini">
+          <h3>3) Customers pick up faster</h3>
+          <p>Fewer overdue items, less counter time chasing customers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT'S FOR + TRUST -->
+    <section class="section">
+      <div class="grid3">
+        <div class="mini">
+          <h3>Made for dry cleaners</h3>
+          <p>Works for independent shops, pickup & delivery, and multi-location operations.</p>
+        </div>
+        <div class="mini">
+          <h3>Easy trial start</h3>
+          <p>Start in minutes. Cancel anytime during the trial to avoid charges.</p>
+        </div>
+        <div class="mini">
+          <h3>Support when you need it</h3>
+          <p>We’ll help you get up and running quickly and professionally.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>
+        © <span id="year"></span> Quenex Canada Inc. dba MyLaundryReminder (MLR). &nbsp;|&nbsp;
+        <a href="/">Home</a>
+      </small>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
