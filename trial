@@ -1,1 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trial Started | MyLaundryReminder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: #f7fbff;
+      color: #0f172a;
+    }
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5eef9;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(17,72,132,.12);
+    }
+    h1 {
+      margin-top: 0;
+      color: #114884;
+    }
+    p {
+      color: #475569;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: linear-gradient(90deg,#0244B5,#4E99FB);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>✅ Your 30-day trial is now active</h1>
+      <p>
+        Thanks for signing up for <strong>MyLaundryReminder</strong>.
+        You’re all set and can begin using the system right away.
+      </p>
+      <p>
+        If you need help getting started, call us at <strong>647-584-0962</strong>.
+      </p>
+      <a class="btn" href="/">Return to MyLaundryReminder</a>
+    </div>
+  </div>
+</body>
+</html>
 
