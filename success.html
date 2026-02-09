@@ -1,46 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Success — MyLaundryReminder</title>
-<meta name="robots" content="noindex" />
-<style>
-  :root{--brand:#1e90ff;--text:#0f172a;--muted:#475569;--border:#e2e8f0}
-  body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:#fff;color:var(--text)}
-  .container{max-width:720px;margin:10vh auto;padding:0 20px}
-  h1{margin:0 0 6px;font-weight:900;letter-spacing:-.02em}
-  .muted{color:var(--muted)}
-  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .btn{display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;border:1px solid var(--border);font-weight:700}
-  .btn-primary{background:var(--brand);color:#fff;border-color:transparent}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyLaundryReminder - Success</title>
+  <link rel="stylesheet" href="/styles.css"> <!-- optional: match your site styling -->
 </head>
 <body>
-  <div class="container">
-    <h1>You're in! 🎉</h1>
-    <p class="muted" id="planCopy">Thanks for starting your 30-day free trial.</p>
+  <div class="container" style="max-width:600px; margin:50px auto; text-align:center;">
+    <h1>🎉 Your trial is active!</h1>
+    <p>Thank you for starting your 30-day free trial of <strong>MyLaundryReminder</strong>.</p>
 
-    <div class="row">
-      <!-- UPDATED: point to portal root (works), not /welcome -->
-      <a class="btn btn-primary" href="https://portal.mylaundryreminder.com" rel="noopener">Open Subscriber Portal</a>
-      <a class="btn" href="/">Back to Home</a>
-    </div>
+    <h2>✅ Pickup Submitted Successfully!</h2>
+    <p>We’ve received your pickup request. Your customer is now scheduled.</p>
 
-    <p class="muted" style="margin-top:14px">
-      Tip: If your portal uses a different start page, replace the button link with that exact URL.
-    </p>
+    <p>Here’s what happens next:</p>
+    <ul style="text-align:left;">
+      <li>Your trial will last 30 days, and your subscription will auto-renew at <strong>$99/month</strong> unless canceled before day 30.</li>
+      <li>You will receive SMS and email reminders for pickups automatically.</li>
+      <li>You can add more pickups or manage your account in the dashboard.</li>
+    </ul>
+
+    <a href="/trial" class="btn btn-primary" style="margin-top:20px; display:inline-block;">Add Another Pickup</a>
   </div>
-
-  <script>
-    // Personalize with ?plan=single|growth|pro
-    const names = {single:'Single Store', growth:'Growth', pro:'Pro'};
-    const p = new URLSearchParams(location.search).get('plan');
-    if (names[p]) {
-      document.getElementById('planCopy').textContent =
-        `Thanks for choosing the ${names[p]} plan. Your 30-day free trial has started.`;
-    }
-  </script>
 </body>
 </html>
+
 
