@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Payment Canceled — MyLaundryReminder</title>
+<meta name="robots" content="noindex" />
+<style>
+  :root{--brand:#1e90ff;--text:#0f172a;--muted:#475569;--border:#e2e8f0}
+  body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:#fff;color:var(--text)}
+  .container{max-width:720px;margin:10vh auto;padding:0 20px}
+  h1{margin:0 0 6px;font-weight:900;letter-spacing:-.02em}
+  .muted{color:var(--muted)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .btn{display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;border:1px solid var(--border);font-weight:700}
+  .btn-primary{background:var(--brand);color:#fff;border-color:transparent}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Payment canceled</h1>
+    <p class="muted" id="copy">No charge was made. You can try again any time.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="/#pricing">Choose a plan</a>
+      <a class="btn" href="/">Back to home</a>
+    </div>
+    <p class="muted" style="margin-top:16px;">Need help? Email <a href="mailto:info@mylaundryreminder.com">info@mylaundryreminder.com</a></p>
+  </div>
+
+  <script>
+    // Optional: personalize with ?plan=single|growth|pro
+    const names = {single:'Single Store', growth:'Growth', pro:'Pro'};
+    const p = new URLSearchParams(location.search).get('plan');
+    if (names[p]) {
+      document.getElementById('copy').textContent =
+        `Your ${names[p]} checkout was canceled. No charge was made — you can try again any time.`;
+    }
+  </script>
+</body>
+</html>
