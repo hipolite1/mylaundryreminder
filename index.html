@@ -18,7 +18,6 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-    /* Header */
     header{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand-title{font-weight:900;font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.05;letter-spacing:-.03em;background:linear-gradient(90deg,#1e90ff,#00c2ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(0,0,0,.04)}
@@ -30,7 +29,6 @@
     .btn-cta{background:linear-gradient(180deg,var(--brand),var(--brand-600));color:#fff}
     .btn-cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(30,144,255,.25);background:linear-gradient(180deg,var(--brand-600),var(--brand-700))}
 
-    /* Sections */
     section{padding:38px 0;border-top:1px solid var(--border)}
     h1,h2{letter-spacing:-.02em;margin:0 0 10px}
     h1{font-weight:900;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.05}
@@ -39,7 +37,6 @@
     .badge{display:inline-block;background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.25);color:var(--brand-700);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.03em}
     .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 
-    /* Grids */
     .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 6px 24px rgba(2,6,23,.06);padding:18px}
     .card h3{margin:0 0 6px;font-size:1.05rem}
@@ -48,7 +45,6 @@
     .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px}
     .step .num{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:800;margin-right:8px}
 
-    /* Pricing */
     .pricing-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .plan{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;flex-direction:column;position:relative}
     .plan h3{margin:0 0 8px}
@@ -58,24 +54,18 @@
     .price .period{color:var(--muted);font-weight:600;font-size:1rem;margin-left:6px}
     .plan--popular{border-color:var(--brand-600);box-shadow:0 12px 32px rgba(30,144,255,.18)}
     .ribbon{position:absolute;top:12px;right:-34px;transform:rotate(45deg);background:var(--brand);color:#fff;padding:4px 48px;font-size:.75rem;font-weight:800;letter-spacing:.02em;box-shadow:0 8px 18px rgba(30,144,255,.35)}
-    .btn-plan{margin-top:auto}
-    .btn-plan a{width:100%}
 
-    /* Phone link with icon */
     .phone-link{display:inline-flex;align-items:center;gap:8px}
     .phone-link svg{width:16px;height:16px;display:block}
 
-    /* State links */
     .state-link{
       font-size:15px; font-weight:800; color:#1e90ff; background:#f0f9ff;
       border:1px solid #93c5fd; border-radius:999px; padding:6px 10px; line-height:1;
     }
     .state-link:hover{background:#1e90ff; color:#fff; border-color:#1e90ff; text-decoration:none;}
 
-    /* Footer */
     footer{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.95rem}
 
-    /* Mobile */
     @media (max-width: 768px){
       .container{padding:0 14px}
       .nav{flex-direction:column;align-items:flex-start;gap:10px;padding:10px 0}
@@ -96,7 +86,6 @@
 </head>
 
 <body>
-  <!-- Optional promo banner -->
   <a href="/texas.html"
      style="display:block;background:#f0f9ff;border-bottom:1px solid #e2e8f0;text-align:center;padding:10px 12px;font-weight:700;color:#0f172a;text-decoration:none;">
     <span style="display:inline-flex;align-items:center;gap:10px;">
@@ -125,6 +114,7 @@
           <span>(866) 811-8202</span>
         </a>
 
+        <!-- ✅ FIXED: always go to real portal page -->
         <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Subscriber Portal</a>
         <a class="btn-cta" href="#pricing">Choose Plan</a>
       </nav>
@@ -132,7 +122,6 @@
   </header>
 
   <main>
-    <!-- 1) HERO -->
     <section id="reminders">
       <div class="container">
         <span class="badge">Automated pickup reminders for your customers</span>
@@ -150,7 +139,7 @@
       </div>
     </section>
 
-    <!-- 2) PRICING (CLICK -> YOUR SERVER -> STRIPE) -->
+    <!-- ✅ PRICING: ALL PLANS GO THROUGH YOUR SERVER CHECKOUT -->
     <section id="pricing">
       <div class="container">
         <h2>Operators Plans</h2>
@@ -169,8 +158,8 @@
               <li>Core analytics</li>
             </ul>
             <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener" aria-label="Checkout: Single Store (monthly)">Choose Monthly</a>
-              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener" aria-label="Checkout: Single Store (yearly)">Choose Yearly</a>
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener">Choose Monthly</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener">Choose Yearly</a>
             </div>
           </article>
 
@@ -184,8 +173,8 @@
               <li>Review nudges (optional)</li>
             </ul>
             <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener" aria-label="Checkout: Growth (monthly)">Choose Monthly</a>
-              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener" aria-label="Checkout: Growth (yearly)">Choose Yearly</a>
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener">Choose Monthly</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener">Choose Yearly</a>
             </div>
           </article>
 
@@ -198,8 +187,8 @@
               <li>Priority support</li>
             </ul>
             <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener" aria-label="Checkout: Pro (monthly)">Choose Monthly</a>
-              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener" aria-label="Checkout: Pro (yearly)">Choose Yearly</a>
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener">Choose Monthly</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener">Choose Yearly</a>
             </div>
           </article>
         </div>
@@ -207,14 +196,14 @@
         <div class="card" style="margin-top:16px;">
           <h3 style="margin:0 0 6px;">After checkout</h3>
           <p class="sub" style="margin:0;">
-            When Stripe confirms payment, you’ll be sent into the <a href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener" style="text-decoration:underline;font-weight:800;">Subscriber Portal</a>
+            When Stripe confirms payment, you’ll be sent into the
+            <a href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener" style="text-decoration:underline;font-weight:800;">Subscriber Portal</a>
             to manage customers, pickups, reminders, and billing.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- 3) HOW IT WORKS -->
     <section id="how">
       <div class="container">
         <h2>How it works</h2>
@@ -241,7 +230,6 @@
       </div>
     </section>
 
-    <!-- 4) FAQ -->
     <section id="faq">
       <div class="container">
         <h2>FAQ</h2>
