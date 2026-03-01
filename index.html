@@ -125,7 +125,7 @@
           <span>(866) 811-8202</span>
         </a>
 
-        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome" rel="noopener">Subscriber Portal</a>
+        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Subscriber Portal</a>
         <a class="btn-cta" href="#pricing">Choose Plan</a>
       </nav>
     </div>
@@ -144,13 +144,13 @@
 
         <div class="cta-row">
           <a class="btn-ghost btn" href="#pricing">Choose a Plan</a>
-          <a class="btn-cta" href="https://portal.mylaundryreminder.com/welcome" rel="noopener">Open Subscriber Portal</a>
+          <a class="btn-cta" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Open Subscriber Portal</a>
           <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/sms-compliance" rel="noopener">SMS Compliance (Operators)</a>
         </div>
       </div>
     </section>
 
-    <!-- 2) PRICING (SIMPLE: CLICK -> STRIPE) -->
+    <!-- 2) PRICING (CLICK -> YOUR SERVER -> STRIPE) -->
     <section id="pricing">
       <div class="container">
         <h2>Operators Plans</h2>
@@ -168,10 +168,9 @@
               <li>SMS & Call reminders</li>
               <li>Core analytics</li>
             </ul>
-            <div class="btn-plan">
-              <a class="btn-cta" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" rel="noopener" aria-label="Checkout: Single Store (monthly)">
-                Start Trial (Stripe)
-              </a>
+            <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener" aria-label="Checkout: Single Store (monthly)">Choose Monthly</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener" aria-label="Checkout: Single Store (yearly)">Choose Yearly</a>
             </div>
           </article>
 
@@ -184,10 +183,9 @@
               <li>SMS & Call reminders</li>
               <li>Review nudges (optional)</li>
             </ul>
-            <div class="btn-plan">
-              <a class="btn-cta" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" rel="noopener" aria-label="Checkout: Growth (monthly)">
-                Start Trial (Stripe)
-              </a>
+            <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener" aria-label="Checkout: Growth (monthly)">Choose Monthly</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener" aria-label="Checkout: Growth (yearly)">Choose Yearly</a>
             </div>
           </article>
 
@@ -199,10 +197,9 @@
               <li>SMS & Call reminders</li>
               <li>Priority support</li>
             </ul>
-            <div class="btn-plan">
-              <a class="btn-cta" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" rel="noopener" aria-label="Checkout: Pro (monthly)">
-                Start Trial (Stripe)
-              </a>
+            <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener" aria-label="Checkout: Pro (monthly)">Choose Monthly</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener" aria-label="Checkout: Pro (yearly)">Choose Yearly</a>
             </div>
           </article>
         </div>
@@ -210,7 +207,7 @@
         <div class="card" style="margin-top:16px;">
           <h3 style="margin:0 0 6px;">After checkout</h3>
           <p class="sub" style="margin:0;">
-            When Stripe confirms payment, open the <a href="https://portal.mylaundryreminder.com/welcome" rel="noopener" style="text-decoration:underline;font-weight:800;">Subscriber Portal</a>
+            When Stripe confirms payment, you’ll be sent into the <a href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener" style="text-decoration:underline;font-weight:800;">Subscriber Portal</a>
             to manage customers, pickups, reminders, and billing.
           </p>
         </div>
@@ -268,7 +265,7 @@
 
         <div class="cta-row" style="margin-top:16px;">
           <a class="btn-cta" href="#pricing">Choose Plan</a>
-          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome" rel="noopener">Subscriber Portal</a>
+          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Subscriber Portal</a>
         </div>
       </div>
     </section>
@@ -280,7 +277,7 @@
         <div>© <span id="year"></span> MyLaundryReminder</div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
           <a class="btn-ghost btn" href="tel:+1-866-811-8202">Call</a>
-          <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/welcome" rel="noopener">Subscriber Portal</a>
+          <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Subscriber Portal</a>
           <a class="btn-cta" href="#pricing">Choose Plan</a>
         </div>
       </div>
@@ -288,7 +285,6 @@
   </footer>
 
   <script>
-    // tiny footer polish only
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
