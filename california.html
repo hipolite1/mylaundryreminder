@@ -84,7 +84,8 @@
     <nav class="navlinks">
       <a class="btn btn-ghost" href="/#how">How it works</a>
       <a class="btn btn-ghost" href="#pricing">Pricing</a>
-      <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/add-pickup" rel="noopener">Subscriber Portal</a>
+      <!-- ✅ Portal should go to login -->
+      <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
       <a class="btn btn-primary" href="#pricing">Get Started</a>
     </nav>
   </div>
@@ -117,7 +118,8 @@
           <li><span class="check">✓</span> Customer replies <b>DONE</b> or staff marks <b>Picked</b> — reminders stop.</li>
           <li><span class="check">✓</span> Works with your current POS/CRM; no migration.</li>
         </ul>
-        <div class="badge-row"><a class="btn btn-primary" href="https://portal.mylaundryreminder.com/add-pickup">Add a Pickup</a></div>
+        <!-- ✅ send users to login first -->
+        <div class="badge-row"><a class="btn btn-primary" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Open Portal</a></div>
       </div>
       <div class="card">
         <h2>Why California shops love it</h2>
@@ -160,9 +162,10 @@
         </ul>
         <a class="btn btn-primary"
            data-plan="single-btn"
-           data-link-month="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602"
-           data-link-year="https://buy.stripe.com/3cI28s4xieKjdRieVJg3607"
-           href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602">Start free trial</a>
+           data-link-month="https://portal.mylaundryreminder.com/stripe/checkout?plan=single"
+           data-link-year="https://portal.mylaundryreminder.com/stripe/checkout?plan=single"
+           href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single"
+           rel="noopener">Start free trial</a>
       </div>
 
       <!-- Growth -->
@@ -177,9 +180,10 @@
         </ul>
         <a class="btn btn-primary"
            data-plan="growth-btn"
-           data-link-month="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601"
-           data-link-year="https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606"
-           href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601">Start free trial</a>
+           data-link-month="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth"
+           data-link-year="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth"
+           href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth"
+           rel="noopener">Start free trial</a>
       </div>
 
       <!-- Pro -->
@@ -194,17 +198,17 @@
         </ul>
         <a class="btn btn-primary"
            data-plan="pro-btn"
-           data-link-month="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600"
-           data-link-year="https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605"
-           href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600">Start free trial</a>
+           data-link-month="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro"
+           data-link-year="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro"
+           href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro"
+           rel="noopener">Start free trial</a>
       </div>
     </div>
-    <p class="small">Yearly = billed annually via Stripe. Prices shown are monthly equivalents.</p>
+    <p class="small">Yearly toggle is kept for UI. Billing is handled in Stripe during checkout.</p>
   </section>
 </main>
 
 <footer>
-  <footer>
   <div class="container">
     <div>© <span id="yr"></span> Quenex Canada Inc. — MyLaundryReminder. All rights reserved.</div>
     <div style="margin-top:6px">
@@ -217,13 +221,11 @@
   </div>
 </footer>
 
-</footer>
-
 <script>
   // dynamic year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Yearly/Monthly toggle
+  // Yearly/Monthly toggle (kept; both map to same portal checkout for now)
   const sw = document.getElementById('switch');
   const toggle = () => {
     const yearly = sw.classList.toggle('active');
@@ -237,7 +239,7 @@
       const note = document.getElementById(p.note);
       if(!a||!note) return;
       a.href = a.getAttribute(yearly ? 'data-link-year' : 'data-link-month');
-      note.textContent = yearly ? 'Billed annually' : 'Billed monthly';
+      note.textContent = yearly ? 'Billed annually (handled in checkout)' : 'Billed monthly';
     });
   };
   if (sw) {
