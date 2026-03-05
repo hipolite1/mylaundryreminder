@@ -60,7 +60,9 @@
 
         <a class="btn-ghost" href="#faq">FAQ</a>
         <a class="btn-ghost phone-link" href="tel:+16475840962"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.1.74.26 1.47.5 2.17a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.9-1.06a2 2 0 0 1 2.11-.45c.7.24 1.43.4 2.17.5A2 2 0 0 1 22 16.92z"/></svg><span>(647}584-0962</span></a>
-        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome" rel="noopener">Subscriber Portal</a>
+
+        <!-- ✅ Fix: Portal should go to login -->
+        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
         <a class="btn-cta" href="#pricing">Get Started</a>
       </nav>
     </div>
@@ -73,7 +75,8 @@
         <h1>Automated pickup reminders for Canadian dry cleaners</h1>
         <p class="sub">Staff enters the customer’s name, mobile, and due date. On/after the due date we send one reminder per day (SMS/Call). When picked up—or you mark it—reminders stop automatically.</p>
         <div class="cta-row">
-          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/add-pickup" rel="noopener">Add a Pickup</a>
+          <!-- ✅ Fix: send to login first -->
+          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Add a Pickup</a>
           <a class="btn-cta" href="#pricing">See Operators Plans</a>
         </div>
       </div>
@@ -85,9 +88,54 @@
         <p class="sub">All plans include daily reminder loops, portal access, and compliance controls. <strong>Billed monthly or yearly</strong> <span class="save-pill">Yearly: 2 months free</span></p>
 
         <div class="pricing-grid" id="plans">
-          <article class="plan" data-month="49"><h3>Single Store</h3><div class="price"><span class="amount">$49</span> <span class="period">/month</span></div><div class="trial">30-day free trial · Cancel anytime</div><ul><li>1 location</li><li>SMS & Call reminders</li><li>Core analytics</li></ul><a class="btn-cta cta-month" href="https://buy.stripe.com/bJebJ26Fq1XxbJa9Bpg3602" rel="noopener">Choose Monthly</a><a class="btn-ghost cta-year" href="https://buy.stripe.com/3cI28s4xieKjdRieVJg3607" rel="noopener" style="display:none">Choose Yearly</a></article>
-          <article class="plan plan--popular" data-month="99"><span class="ribbon" aria-hidden="true">MOST POPULAR</span><h3>Growth</h3><div class="price"><span class="amount">$99</span> <span class="period">/month</span></div><div class="trial">30-day free trial · Cancel anytime</div><ul><li>Up to 3 locations</li><li>SMS & Call reminders</li><li>Review nudges (optional)</li></ul><a class="btn-cta cta-month" href="https://buy.stripe.com/14A6oI2pa0TtcNe14Tg3601" rel="noopener">Choose Monthly</a><a class="btn-ghost cta-year" href="https://buy.stripe.com/eVq3cwd3Oau36oQaFtg3606" rel="noopener" style="display:none">Choose Yearly</a></article>
-          <article class="plan" data-month="199"><h3>Pro</h3><div class="price"><span class="amount">$199</span> <span class="period">/month</span></div><div class="trial">30-day free trial · Cancel anytime</div><ul><li>Multi-location</li><li>SMS & Call reminders</li><li>Priority support</li></ul><a class="btn-cta cta-month" href="https://buy.stripe.com/00w3cw3te1Xx8wY00Pg3600" rel="noopener">Choose Monthly</a><a class="btn-ghost cta-year" href="https://buy.stripe.com/aFa8wQ1l6gSr3cEaFtg3605" rel="noopener" style="display:none">Choose Yearly</a></article>
+          <!-- Single -->
+          <article class="plan" data-month="49">
+            <h3>Single Store</h3>
+            <div class="price"><span class="amount">$49</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul><li>1 location</li><li>SMS & Call reminders</li><li>Core analytics</li></ul>
+            <a class="btn-cta cta-month"
+               data-link-month="https://portal.mylaundryreminder.com/stripe/checkout?plan=single"
+               data-link-year="https://portal.mylaundryreminder.com/stripe/checkout?plan=single"
+               href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single"
+               rel="noopener">Choose Monthly</a>
+            <a class="btn-ghost cta-year"
+               href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single"
+               rel="noopener" style="display:none">Choose Yearly</a>
+          </article>
+
+          <!-- Growth -->
+          <article class="plan plan--popular" data-month="99">
+            <span class="ribbon" aria-hidden="true">MOST POPULAR</span>
+            <h3>Growth</h3>
+            <div class="price"><span class="amount">$99</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul><li>Up to 3 locations</li><li>SMS & Call reminders</li><li>Review nudges (optional)</li></ul>
+            <a class="btn-cta cta-month"
+               data-link-month="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth"
+               data-link-year="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth"
+               href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth"
+               rel="noopener">Choose Monthly</a>
+            <a class="btn-ghost cta-year"
+               href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth"
+               rel="noopener" style="display:none">Choose Yearly</a>
+          </article>
+
+          <!-- Pro -->
+          <article class="plan" data-month="199">
+            <h3>Pro</h3>
+            <div class="price"><span class="amount">$199</span> <span class="period">/month</span></div>
+            <div class="trial">30-day free trial · Cancel anytime</div>
+            <ul><li>Multi-location</li><li>SMS & Call reminders</li><li>Priority support</li></ul>
+            <a class="btn-cta cta-month"
+               data-link-month="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro"
+               data-link-year="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro"
+               href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro"
+               rel="noopener">Choose Monthly</a>
+            <a class="btn-ghost cta-year"
+               href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro"
+               rel="noopener" style="display:none">Choose Yearly</a>
+          </article>
         </div>
 
         <p class="sub" style="margin-top:10px;color:#64748b">Prices shown are in USD; Canadian billing supported via Stripe. SMS delivered from a verified North American route.</p>
@@ -117,6 +165,21 @@
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Keep your monthly/yearly toggles working (both go to portal checkout for now)
+    const plans = document.querySelectorAll('#plans .plan');
+    plans.forEach(plan => {
+      const monthBtn = plan.querySelector('.cta-month');
+      const yearBtn  = plan.querySelector('.cta-year');
+      if (!monthBtn || !yearBtn) return;
+
+      // if you later add a real yearly plan, just change data-link-year values above.
+      const monthLink = monthBtn.getAttribute('data-link-month') || monthBtn.href;
+      const yearLink  = monthBtn.getAttribute('data-link-year')  || monthBtn.href;
+
+      monthBtn.href = monthLink;
+      yearBtn.href  = yearLink;
+    });
   </script>
 </body>
 </html>
