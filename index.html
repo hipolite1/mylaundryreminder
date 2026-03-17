@@ -111,10 +111,9 @@
 
         <a class="btn-ghost phone-link" href="tel:+1-647-493-5044" aria-label="Call MyLaundryReminder">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.1.74.26 1.47.5 2.17a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.9-1.06a2 2 0 0 1 2.11-.45c.7.24 1.43.4 2.17.5A2 2 0 0 1 22 16.92z"/></svg>
-          <span>(647) 493-5055</span>
+          <span>(647) 493-5044</span>
         </a>
 
-        <!-- ✅ Subscriber Portal (existing customers) -->
         <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
         <a class="btn-cta" href="#pricing">Choose Plan</a>
       </nav>
@@ -133,63 +132,62 @@
 
         <div class="cta-row">
           <a class="btn-ghost btn" href="#pricing">Choose a Plan</a>
-          <!-- ✅ Open Subscriber Portal should go to login -->
           <a class="btn-cta" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Open Subscriber Portal</a>
           <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/sms-compliance" rel="noopener">SMS Compliance (Operators)</a>
         </div>
       </div>
     </section>
 
-    <!-- ✅ PRICING: ALL PLANS GO THROUGH YOUR SERVER CHECKOUT -->
     <section id="pricing">
       <div class="container">
         <h2>Operators Plans</h2>
         <p class="sub">
           Simple flow: <strong>Choose plan → Stripe Checkout → Subscriber Portal</strong>.
           All plans include reminders + portal access. <span style="font-weight:800;color:var(--brand-700)">30-day trial.</span>
+          Prices shown in <strong>CAD</strong>.
         </p>
 
         <div class="pricing-grid">
           <article class="plan" aria-labelledby="single-title">
-            <h3 id="single-title">Single Store</h3>
-            <div class="price"><span class="amount">$49</span> <span class="period">/month</span></div>
+            <h3 id="single-title">Starter</h3>
+            <div class="price"><span class="amount">C$49</span> <span class="period">/month</span></div>
             <ul>
               <li>1 location</li>
               <li>SMS & Call reminders</li>
               <li>Core analytics</li>
             </ul>
             <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener">Choose Monthly</a>
-              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener">Choose Yearly</a>
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener">Start Free Trial</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=single" rel="noopener">Choose Starter</a>
             </div>
           </article>
 
           <article class="plan plan--popular" aria-labelledby="growth-title">
             <span class="ribbon" aria-hidden="true">MOST POPULAR</span>
             <h3 id="growth-title">Growth</h3>
-            <div class="price"><span class="amount">$99</span> <span class="period">/month</span></div>
+            <div class="price"><span class="amount">C$99</span> <span class="period">/month</span></div>
             <ul>
               <li>Up to 3 locations</li>
               <li>SMS & Call reminders</li>
               <li>Review nudges (optional)</li>
             </ul>
             <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener">Choose Monthly</a>
-              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener">Choose Yearly</a>
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener">Start Free Trial</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=growth" rel="noopener">Choose Growth</a>
             </div>
           </article>
 
           <article class="plan" aria-labelledby="pro-title">
             <h3 id="pro-title">Pro</h3>
-            <div class="price"><span class="amount">$199</span> <span class="period">/month</span></div>
+            <div class="price"><span class="amount">C$149</span> <span class="period">/month</span></div>
             <ul>
               <li>Multi-location</li>
               <li>SMS & Call reminders</li>
               <li>Priority support</li>
             </ul>
             <div class="row" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener">Choose Monthly</a>
-              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener">Choose Yearly</a>
+              <a class="btn-cta cta-month" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener">Start Free Trial</a>
+              <a class="btn-ghost cta-year" href="https://portal.mylaundryreminder.com/stripe/checkout?plan=pro" rel="noopener">Choose Pro</a>
             </div>
           </article>
         </div>
@@ -197,6 +195,10 @@
         <div class="card" style="margin-top:16px;">
           <h3 style="margin:0 0 6px;">After checkout</h3>
           <p class="sub" style="margin:0;">
+            Start your 30-day free trial. Then continue on
+            <strong>Starter at C$49/month</strong>,
+            <strong>Growth at C$99/month</strong>, or
+            <strong>Pro at C$149/month</strong>.
             When Stripe confirms payment, you’ll be sent into the
             <a href="https://portal.mylaundryreminder.com/login.html" rel="noopener" style="text-decoration:underline;font-weight:800;">Subscriber Portal</a>
             to manage customers, pickups, reminders, and billing.
@@ -250,11 +252,15 @@
             <h3>What stops reminders?</h3>
             <p class="sub">Once a pickup is marked “picked up,” reminders stop automatically.</p>
           </div>
+
+          <div class="card">
+            <h3>What currency are prices shown in?</h3>
+            <p class="sub">All prices are shown in Canadian dollars (CAD).</p>
+          </div>
         </div>
 
         <div class="cta-row" style="margin-top:16px;">
           <a class="btn-cta" href="#pricing">Choose Plan</a>
-          <!-- ✅ Footer/FAQ portal link should go to login -->
           <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
         </div>
       </div>
@@ -273,7 +279,6 @@
           </span>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-          <!-- ✅ fixed tel typo -->
           <a class="btn-ghost btn" href="tel:+1-647-493-5044">Call</a>
           <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
           <a class="btn-cta" href="#pricing">Choose Plan</a>
