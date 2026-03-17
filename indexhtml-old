@@ -109,13 +109,13 @@
 
         <a class="btn-ghost" href="#faq">FAQ</a>
 
-        <a class="btn-ghost phone-link" href="tel:+1-866-811-8202" aria-label="Call MyLaundryReminder">
+        <a class="btn-ghost phone-link" href="tel:+1-647-493-5044" aria-label="Call MyLaundryReminder">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.1.74.26 1.47.5 2.17a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.9-1.06a2 2 0 0 1 2.11-.45c.7.24 1.43.4 2.17.5A2 2 0 0 1 22 16.92z"/></svg>
-          <span>(866) 811-8202</span>
+          <span>(647) 493-5055</span>
         </a>
 
-        <!-- ✅ FIXED: always go to real portal page -->
-        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Subscriber Portal</a>
+        <!-- ✅ Subscriber Portal (existing customers) -->
+        <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
         <a class="btn-cta" href="#pricing">Choose Plan</a>
       </nav>
     </div>
@@ -133,7 +133,8 @@
 
         <div class="cta-row">
           <a class="btn-ghost btn" href="#pricing">Choose a Plan</a>
-          <a class="btn-cta" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Open Subscriber Portal</a>
+          <!-- ✅ Open Subscriber Portal should go to login -->
+          <a class="btn-cta" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Open Subscriber Portal</a>
           <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/sms-compliance" rel="noopener">SMS Compliance (Operators)</a>
         </div>
       </div>
@@ -197,7 +198,7 @@
           <h3 style="margin:0 0 6px;">After checkout</h3>
           <p class="sub" style="margin:0;">
             When Stripe confirms payment, you’ll be sent into the
-            <a href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener" style="text-decoration:underline;font-weight:800;">Subscriber Portal</a>
+            <a href="https://portal.mylaundryreminder.com/login.html" rel="noopener" style="text-decoration:underline;font-weight:800;">Subscriber Portal</a>
             to manage customers, pickups, reminders, and billing.
           </p>
         </div>
@@ -253,7 +254,8 @@
 
         <div class="cta-row" style="margin-top:16px;">
           <a class="btn-cta" href="#pricing">Choose Plan</a>
-          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Subscriber Portal</a>
+          <!-- ✅ Footer/FAQ portal link should go to login -->
+          <a class="btn btn-ghost" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
         </div>
       </div>
     </section>
@@ -262,10 +264,18 @@
   <footer>
     <div class="container">
       <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
-        <div>© <span id="year"></span> MyLaundryReminder</div>
+        <div>
+          © <span id="year"></span> MyLaundryReminder<br>
+          <span style="font-size:11px;line-height:1.35;">
+            <a href="mailto:support@mylaundryreminder.com" style="text-decoration:underline;">support@mylaundryreminder.com</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            Address: 4000 Steeles Ave. W. Woodbridge ON L4L 4V9
+          </span>
+        </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-          <a class="btn-ghost btn" href="tel:+1-866-811-8202">Call</a>
-          <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/welcome.html" rel="noopener">Subscriber Portal</a>
+          <!-- ✅ fixed tel typo -->
+          <a class="btn-ghost btn" href="tel:+1-647-493-5044">Call</a>
+          <a class="btn-ghost btn" href="https://portal.mylaundryreminder.com/login.html" rel="noopener">Subscriber Portal</a>
           <a class="btn-cta" href="#pricing">Choose Plan</a>
         </div>
       </div>
